@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="/Style/Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app_1" class="container">
+
+        <div class="containerHeader">
+            <header>
+                <span class="logo">Logo</span>
+                <div class="navigation">
+                    <a href="index.html" class="navItem">Главная</a>
+                    <a href="index.html#kat" class="navItem">Категории</a>
+                    <a href="korzina.html" class="navItem">Корзина</a>
+                    <a href="kabinet.html" class="navItem">Личный кабинет</a>
+                    <input type="text" class="searchInput" placeholder="Поиск товара"><button class="searchButton"><img
+                            src="/img/icons/search.svg" alt=""></button>
+                </div>
+            </header>
+        </div>
+        <div class="container_section">
+            <p class="container_section_text">Электрогитары</p>
+        </div>
+        <div class="container_tovar">
+            <p>
+            <p class="item_name">ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK</p>
+            <p class="discount">-10%</p>
+            </p>
+            <div class="item_info">
+                <div class="item_img">
+                    <div class="item_img1">
+                        <div class="item_img_1">
+                            <img src="/img/good1.png" alt="">
+                        </div>
+                        <div class="item_img_1">
+                            <img src="/img/good1.png" alt="">
+                        </div>
+                        <div class="item_img_1">
+                            <img src="/img/good1.png" alt="">
+                        </div>
+                        <div class="item_img_1">
+                            <img src="/img/good1.png" alt="">
+                        </div>
+                    </div>
+                    <img class="item_img2" src="/img/good1.png" alt="">
+                </div>
+                <div class="item_buy">
+                    <p class="item_buy_text">Код товара: 2948</p>
+                    <p class="item_buy_text">Производитель: j8</p>
+                    <span class="item_buy_text">Цена:</span>
+                    <p class="item_buy_price_dis">2772грн.</p><br>
+                    <p class="item_buy_price">2772грн.</p>
+                    <div class="input_count">
+                        <img src="/img/icons/minus.png" alt="">
+                        <input type="text" value="1" class="item_buy_input">
+                        <img src="/img/icons/plus.png" alt="">
+                    </div>
+                    <p class="item_buy_text_total">Итого:</p>
+                    <span class="item_buy_price_total">2343грн.</span>
+                    <button class="item_buy_btn">В корзину</button>
+                    <div class="rating">
+                        <img class="itemCardRate2" src="/img/rated.png" alt="">
+                        <img class="itemCardRate2" src="/img/rated.png" alt="">
+                        <img class="itemCardRate2" src="/img/rated.png" alt="">
+                        <img class="itemCardRate2" src="/img/rated.png" alt="">
+                        <img class="itemCardRate2" src="/img/unrated.png" alt="">
+                        <a class="itemCardComment2" href="#coment">Отзывы:3</a>
+                        <div class="writeComment">
+                            <img class="commentImg" src="/img/icons/pen.png" alt="">
+                            <a class="itemCardComment2" href="#com">Написать отзыв</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="descr">
+                <p class="item_description">Описание товара</p>
+                <p class="item_description_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    rhoncus sodales tellus ut consequat. Sed tristique, mauris
+                    vitae blandit cursus, est eros pretium erat, vel posuere sapien tellus varius ipsum. Sed odio nibh,
+                    tristique nec velit pellentesque,
+                    consequat maximus sapien. Quisque efficitur tristique ante, quis aliquet eros tempor id. Donec
+                    luctus
+                    facilisis nunc, sit amet finibus
+                    lacus porta sit amet.
+                    Donec feugiat consequat odio eu maximus. Ut sed porta odio, ultrices posuere ex. Aenean sit amet
+                    elementum sapien. Sed
+                    vestibulum viverra felis vitae molestie. Donec feugiat non augue in eleifend. Praesent facilisis
+                    tortor
+                    quis orci scelerisque suscipit.
+                    Duis lobortis lacinia ex a dignissim. Quisque faucibus tortor ac aliquam porttitor. Sed sodales in
+                    dui
+                    eget dictum.</p>
+                <p class="item_description">Технические характеристики</p>
+                <ul class="item_description_char">
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                </ul>
+            </div>
+            <div class="new-items2" v-show="discountPrice3()">
+                <div class="new-items-title title-section">
+                    <p class="new-items-title-img title-section-img"><img src="/img/Слой_15.png" alt=""></p>
+                    <div class="new-items-title-title title-section-title-title">
+                        <p class="new-items-title-tovar title-section-tovar">Другие цвета и модификации</p>
+                    </div>
+                </div>
+                <section class="new-items-table" id="card2">
+                    <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
+                        <div class="itemCardImg">
+                            <p><img :src="good.image1" alt=""></p>
+                        </div>
+                        <div v-if="good.discount" class="itemCardDiscount">
+                            -{{good.discount}}%
+                        </div>
+                        <div class="itemCardName">
+                            {{good.name}}
+                        </div>
+                        <div class="itemCardCode">
+                            Код товара:{{good.codeOfGood}}
+                        </div>
+                        <div v-for="n in 5" class="itemCardRate">
+                            <img :src="rating(n, good)" alt="">
+                        </div>
+                        <span><a class="itemCardComment" href="#coment">Отзывы:{{good.comment}}</a></span>
+                        <div class="itemCardPrice">
+                            <div v-if="good.discount" class="itemCardDiscountPrice">
+                                {{good.price}}грн.
+                            </div>
+                            <br>
+                            <div class="itemCardPrice2">
+                                {{discountPrice2(good)}}грн.
+                            </div>
+                        </div>
+                        <button class="itemCardBtn"><a href="tovar.html">Купить</a></button>
+                    </div>
+                    <div class="gg">f</div>
+                </section>
+                <div class="btnItem" @click="anim3()"><img src="/img/right-arrow.png" alt=""></div>
+                <div class="btnItem2" @click="anim4()"><img src="/img/right-arrow.png" alt=""></div>
+            </div>
+            <div class="comments">
+                <div class="new-items-title title-section"><a href="" id='com'></a>
+                    <p class="new-items-title-img title-section-img"><img src="/img/Слой_15.png" alt=""></p>
+                    <div class="new-items-title-title title-section-title-title">
+                        <p class="new-items-title-tovar title-section-tovar">Отзывы</p>
+                    </div>
+                </div>
+                <div class="u_comment">
+                    <form action="">
+                        <p class="write_comment">Написать отзыв</p>
+                        <p class="u_comment_text">Ваш отзыв</p>
+                        <textarea class="u_comment_textarea" name="" maxlength="1000" id=""></textarea>
+                        <p class="u_comment_text">Оценка</p>
+                        <p class="u_comment_rate">
+                            <span class="u_comment_rate_text">Плохо</span>
+                            <span v-for="n in 5"><img class="u_comment_rating" src="/img/unrated.png" alt=""></span>
+                            <span class="u_comment_rate_text">Хорошо</span><br>
+                            <button class="btn_comment">Отправить</button>
+                        </p>
+                    </form>
+                </div>
+                <div class="user_comment"><a href="" id="coment"></a>
+                    <p class="write_comment">Отзывы о товаре ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK</p>
+                    <p class="user_info">
+                        <span class="user_name">UserName - 29.01.2009</span>
+                        <span v-for="n in 5"><img class="user_name_rate" src="/img/rated.png" alt=""></span>
+                    </p>
+                    <p class="user_name_comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit
+                        amet nisl fermentum,
+                        fringilla mi vel, congue quam. Sed aliquet magna
+                        sed vehicula venenatis. Cras scelerisque mauris vitae convallis pellentesque.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container-footer">
+                <div class="footer-left foot">
+                    <p class="footer-left-logo">Logo</p>
+                    <p class="footer-left-p">Интернет-магазин музыкальных инструментов </p>
+                </div>
+                <div class="footer-center foot">
+                    <p class="footer-center-title">Навигация</p>
+                    <p class="footer-center-items"><a href="index.html">Главная</a></p>
+                    <p class="footer-center-items"><a href="index.html#kat">Категории</a></p>
+                    <p class="footer-center-items"><a href="tovari.html">Скидки</a></p>
+                    <p class="footer-center-items"><a href="tovari.html">Новинки</a></p>
+                    <p class="footer-center-items"><a href="korzina.html">Корзина</a></p>
+                    <p class="footer-center-items"><a href="kabinet.html">Личный кабинет</a></p>
+                </div>
+                <div class="footer-right foot">
+                    <p class="footer-center-title">Свяжитесь с нами</p>
+                    <div class="footer-icons">
+                        <a href="#"><img src="/img/instagram.png" alt=""></a>
+                        <a href="#"><img src="/img/telegram.png" alt=""></a>
+                        <a href="#"><img src="/img/vk.png" alt=""></a>
+                    </div>
+                    <p class="footer-phone">Телефон: +380 68 232 22 34</p>
+                    <p class="footer-phone">Эл. почта: 1234@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="/scripts/script.js"></script>
+</body>
+
+</html>

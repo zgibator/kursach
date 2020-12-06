@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="/Style/Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app_1">
+        <div class="containerHeader">
+            <header>
+                <span class="logo">Logo</span>
+                <div class="navigation">
+                    <a href="index.html" class="navItem">Главная</a>
+                    <a href="index.html#kat" class="navItem">Категории</a>
+                    <a href="korzina.html" class="navItem">Корзина</a>
+                    <a href="kabinet.html" class="navItem">Личный кабинет</a>
+                    <input type="text" class="searchInput" placeholder="Поиск товара"><button class="searchButton"><img
+                            src="/img/icons/search.svg" alt=""></button>
+                </div>
+            </header>
+        </div>
+        <div class="container_section">
+            <p class="container_section_text">Электрогитары</p>
+        </div>
+        <div class="container">
+            <div class="container_content">
+                <div class="filter_content">
+                    <div class="filter_content_parametr textOfFilter">
+                        <p>Параметры:</p>
+                    </div>
+                    <div class="filter_content_value">
+                        <div class="filter_content_value_prod">
+                            <p class="textOfFilter">Производитель:</p>
+                            <div class="filter_content_value_item">
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                                <label class="check2">
+                                    <input class="check" type="checkbox">
+                                    <p>j8</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container_sort_item">
+                    <div class="sort">
+                        <div class="sort_container">
+                            <p class="sort_text">Сортировка:</p>
+                            <select class="sort_sort sort_text3">
+                                <option>По умолчанию</option>
+                                <option>От дешевых к дорогим</option>
+                                <option>От дорогих к дешевым</option>
+                            </select>
+                            <span class="sort_text2">Товаров найдено: 12-12</span>
+                        </div>
+                    </div>
+                    <div class="container_item">
+                        <section class="container_item_item">
+                            <div v-for="good in itemGood" v-show="good.discount" class="itemCard2">
+                                <div class="itemCardImg">
+                                    <p><img :src="good.image1" alt=""></p>
+                                </div>
+                                <div v-if="good.discount" class="itemCardDiscount">
+                                    -{{good.discount}}%
+                                </div>
+                                <div class="itemCardName">
+                                    {{good.name}}
+                                </div>
+                                <div class="itemCardCode">
+                                    Код товара:{{good.codeOfGood}}
+                                </div>
+                                <div v-for="n in 5" class="itemCardRate">
+                                    <img :src="rating(n, good)" alt="">
+                                </div>
+                                <span><a class="itemCardComment"
+                                        href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                                <div class="itemCardPrice">
+                                    <div v-if="good.discount" class="itemCardDiscountPrice">
+                                        {{good.price}}грн.
+                                    </div>
+                                    <br>
+                                    <div class="itemCardPrice2">
+                                        {{discountPrice2(good)}}грн.
+                                    </div>
+                                </div>
+                                <button class="itemCardBtn"><a href="tovar.html">Купить</a></button>
+                            </div>
+                        </section>
+                        <div class="pagination">
+                            <button class="pagination_prev">
+                                <img class="pagination_img1" src="/img/next.png" alt="">
+                            </button>
+                            <button class="pagination_num">
+                                <p>1</p>
+                            </button>
+                            <button class="pagination_next">
+                                <img class="pagination_img2" src="/img/next.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container-footer">
+                <div class="footer-left foot">
+                    <p class="footer-left-logo">Logo</p>
+                    <p class="footer-left-p">Интернет-магазин музыкальных инструментов </p>
+                </div>
+                <div class="footer-center foot">
+                    <p class="footer-center-title">Навигация</p>
+                    <p class="footer-center-items"><a href="index.html">Главная</a></p>
+                    <p class="footer-center-items"><a href="index.html#kat">Категории</a></p>
+                    <p class="footer-center-items"><a href="#">Скидки</a></p>
+                    <p class="footer-center-items"><a href="#">Новинки</a></p>
+                    <p class="footer-center-items"><a href="korzina.html">Корзина</a></p>
+                    <p class="footer-center-items"><a href="kabinet.html">Личный кабинет</a></p>
+                </div>
+                <div class="footer-right foot">
+                    <p class="footer-center-title">Свяжитесь с нами</p>
+                    <div class="footer-icons">
+                        <a href="#"><img src="/img/instagram.png" alt=""></a>
+                        <a href="#"><img src="/img/telegram.png" alt=""></a>
+                        <a href="#"><img src="/img/vk.png" alt=""></a>
+                    </div>
+                    <p class="footer-phone">Телефон: +380 68 232 22 34</p>
+                    <p class="footer-phone">Эл. почта: 1234@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="/scripts/script.js"></script>
+</body>
+
+</html>
