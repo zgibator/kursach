@@ -23,8 +23,8 @@ new Swiper('.slider', {
 var app_1 = new Vue({
     el: '#app_1',
     data: {
-        rated: "/img/rated.png",
-        unrated: "/img/unrated.png",
+        rated: "img/rated.png",
+        unrated: "img/unrated.png",
         counter: 0,
         imageRate: '',
         t: 0,
