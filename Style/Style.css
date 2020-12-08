@@ -69,21 +69,7 @@ body{
     transition: 0.5s;
     border-bottom: 2px solid#ff9b04;
 }
-.navItem:nth-child(3)::after{
-    display:inline;
-    content: "  1  ";
-    position: absolute;
-    top: 33px;
-    right: 545px;
-    text-align: center;
-    background: url(img/elips.png) no-repeat;
-    background-position: center center;
-    color: white;
-    font-size: 14px;
-    width: 19px;
-    height: 19px;
-    line-height: 19px;
-}
+
 .searchInput{
     font-weight: 700;
     opacity: 0.5;
