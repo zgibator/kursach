@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -69,7 +70,7 @@
             <section class="new-items-table" id="card2">
                 <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
                     <div class="itemCardImg">
-                        <p><img :src="good.image1" alt=""></p>
+                        <img :src="good.image1" alt="">
                     </div>
                     <div v-if="good.discount" class="itemCardDiscount">
                         -{{good.discount}}%
@@ -77,28 +78,30 @@
                     <div class="itemCardName">
                         {{good.name}}
                     </div>
-                    <div class="itemCardCode">
-                        Код товара:{{good.codeOfGood}}
-                    </div>
-                    <div v-for="n in 5" class="itemCardRate">
-                        <img :src="rating(n, good)" alt="">
-                    </div>
-                    <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
-                    <div class="itemCardPrice">
-                        <div v-if="good.discount" class="itemCardDiscountPrice">
-                            {{good.price}}грн.
+                    <div class="item_card_info">
+                        <div class="itemCardCode">
+                            Код товара:{{good.codeOfGood}}
                         </div>
-                        <br>
-                        <div class="itemCardPrice2">
-                            {{discountPrice2(good)}}грн.
+                        <div v-for="n in 5" class="itemCardRate">
+                            <img :src="rating(n, good)" alt="">
+                        </div>
+                        <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                        <div class="itemCardPrice">
+                            <div v-if="good.discount" class="itemCardDiscountPrice">
+                                {{good.price}}грн.
+                            </div>
+                            <br>
+                            <div class="itemCardPrice2">
+                                {{discountPrice2(good)}}грн.
+                            </div>
                         </div>
                     </div>
                     <button class="itemCardBtn"><a href="tovar.html">Купить</a></button>
                 </div>
                 <div class="gg">f</div>
             </section>
-            <div class="btnItem" @click="anim3()"><img src="/img/right-arrow.png" alt=""></div>
-            <div class="btnItem2" @click="anim4()"><img src="/img/right-arrow.png" alt=""></div>
+            <div class="btnItem" @click="anim3('card2')"><img src="/img/right-arrow.png" alt=""></div>
+            <div class="btnItem2" @click="anim4('card2')"><img src="/img/right-arrow.png" alt=""></div>
         </div>
     </div>
     <div class="footer">
@@ -128,8 +131,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

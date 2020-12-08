@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logo</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
                 <a href="#" class="navItem">Главная</a>
                 <a href="#kat" class="navItem">Категории</a>
                 <a href="korzina.html" class="navItem">Корзина</a>
-                <a href="kabinet.html" class="navItem">Личный кабинет</a>
+                <a href="#registr" class="navItem">Личный кабинет</a>
                 <input type="text" class="searchInput" placeholder="Поиск товара"><button class="searchButton"><img
                         src="/img/icons/search.svg" alt=""></button>
             </div>
@@ -78,9 +78,6 @@
                 </div>
             </div>
 
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
         </div>
     </div>
     <div class="category">
@@ -208,7 +205,7 @@
             <section class="new-items-table" id="card">
                 <div v-for="good in itemGood" v-show="newItem(good)" class="itemCard">
                     <div class="itemCardImg">
-                        <p><img :src="good.image1" alt=""></p>
+                        <img :src="good.image1" alt="">
                     </div>
                     <div v-if="good.discount" class="itemCardDiscount">
                         -{{good.discount}}%
@@ -216,28 +213,30 @@
                     <div class="itemCardName">
                         {{good.name}}
                     </div>
-                    <div class="itemCardCode">
-                        Код товара:{{good.codeOfGood}}
-                    </div>
-                    <div v-for="n in 5" class="itemCardRate">
-                        <img :src="rating(n, good)" alt="">
-                    </div>
-                    <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
-                    <div class="itemCardPrice">
-                        <div v-if="good.discount" class="itemCardDiscountPrice">
-                            {{good.price}}грн.
+                    <div class="item_card_info">
+                        <div class="itemCardCode">
+                            Код товара:{{good.codeOfGood}}
                         </div>
-                        <br>
-                        <div class="itemCardPrice2">
-                            {{discountPrice2(good)}}грн.
+                        <div v-for="n in 5" class="itemCardRate">
+                            <img :src="rating(n, good)" alt="">
+                        </div>
+                        <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                        <div class="itemCardPrice">
+                            <div v-if="good.discount" class="itemCardDiscountPrice">
+                                {{good.price}}грн.
+                            </div>
+                            <br>
+                            <div class="itemCardPrice2">
+                                {{discountPrice2(good)}}грн.
+                            </div>
                         </div>
                     </div>
                     <button class="itemCardBtn"><a href="tovar.html#coment">Купить</a></button>
                 </div>
                 <div class="gg">f</div>
             </section>
-            <div class="btnItem" @click="anim3()"><img src="/img/right-arrow.png" alt=""></div>
-            <div class="btnItem2" @click="anim4()"><img src="/img/right-arrow.png" alt=""></div>
+            <div class="btnItem" @click="anim3('card')"><img src="/img/right-arrow.png" alt=""></div>
+            <div class="btnItem2" @click="anim4('card')"><img src="/img/right-arrow.png" alt=""></div>
         </div>
         <div class="new-items" v-show="discountPrice3()">
             <div class="new-items-title title-section">
@@ -249,7 +248,7 @@
             <section class="new-items-table" id="card2">
                 <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
                     <div class="itemCardImg">
-                        <p><img :src="good.image1" alt=""></p>
+                        <img :src="good.image1" alt="">
                     </div>
                     <div v-if="good.discount" class="itemCardDiscount">
                         -{{good.discount}}%
@@ -257,28 +256,30 @@
                     <div class="itemCardName">
                         {{good.name}}
                     </div>
-                    <div class="itemCardCode">
-                        Код товара:{{good.codeOfGood}}
-                    </div>
-                    <div v-for="n in 5" class="itemCardRate">
-                        <img :src="rating(n, good)" alt="">
-                    </div>
-                    <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
-                    <div class="itemCardPrice">
-                        <div v-if="good.discount" class="itemCardDiscountPrice">
-                            {{good.price}}грн.
+                    <div class="item_card_info">
+                        <div class="itemCardCode">
+                            Код товара:{{good.codeOfGood}}
                         </div>
-                        <br>
-                        <div class="itemCardPrice2">
-                            {{discountPrice2(good)}}грн.
+                        <div v-for="n in 5" class="itemCardRate">
+                            <img class="itemCardRate3" :src="rating(n, good)" alt="">
+                        </div>
+                        <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                        <div class="itemCardPrice">
+                            <div v-if="good.discount" class="itemCardDiscountPrice">
+                                {{good.price}}грн.
+                            </div>
+                            <br>
+                            <div class="itemCardPrice2">
+                                {{discountPrice2(good)}}грн.
+                            </div>
                         </div>
                     </div>
                     <button class="itemCardBtn"><a href="tovar.html">Купить</a></button>
                 </div>
                 <div class="gg">f</div>
             </section>
-            <div class="btnItem" @click="anim3()"><img src="/img/right-arrow.png" alt=""></div>
-            <div class="btnItem2" @click="anim4()"><img src="/img/right-arrow.png" alt=""></div>
+            <div class="btnItem" @click="anim3('card2')"><img src="/img/right-arrow.png" alt=""></div>
+            <div class="btnItem2" @click="anim4('card2')"><img src="/img/right-arrow.png" alt=""></div>
         </div>
     </div>
     <div class="footer">
@@ -308,6 +309,43 @@
             </div>
         </div>
     </div>
+
+    <div id="registr" class="popup-reg">
+        <div class="popup_body">
+            <div class="popup_content">
+                <div class="popup_content1">
+                    <p class="popup_content_title">
+                        Вход
+                    </p>
+                    <div class="popup_content1_info">
+                        <form action="" method="POST">
+                            <p>Логин</p><input class="popup_enter" type="text"><br>
+                            <p>Пароль</p><input class="popup_enter" type="password"><br>
+                            <button class="btn_enter" type="submit">Войти</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="popup_content2">
+                    <p class="popup_content_title">
+                        Регистрация
+                    </p>
+                    <div class="popup_content1_info">
+                        <form action="" method="POST">
+                            <p>Имя</p><input class="popup_enter" type="text"><br>
+                            <p>Фамилия</p><input class="popup_enter" type="password"><br>
+                            <p>Телефон</p><input class="popup_enter" type="text"><br>
+                            <p>Эл. почта</p><input class="popup_enter" type="password"><br>
+                            <p>Логин</p><input class="popup_enter" type="text"><br>
+                            <p>Пароль</p><input class="popup_enter" type="password"><br>
+                            <button class="btn_enter" type="submit">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <a class="popup-reg_cross" href="#obj"><img class="popup-reg_cross" src="/img/icons/cross.png" alt=""></a>
+        </div>
+    </div>
+    <div id="obj" class="obj"></div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="/scripts/script.js"></script>

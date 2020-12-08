@@ -32,7 +32,7 @@ var app_1 = new Vue({
         p: 3,
         discountPrice: 0,
         itemGood: [
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 1, rate: 4, comment: 3, price: 2772, discount: 10, 'image1': '/img/good1.png', date: "12.29.2019" },
+            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 1, rate: 4, comment: 3, price: 2772, discount: 10, 'image1': '/img/guitar.jpg', date: "12.29.2019" },
             { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 2, rate: 4, comment: 3, price: 2772, discount: 10, 'image1': '/img/good1.png', date: '11.23.2021' },
             { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, rate: 4, comment: 3, price: 2772, discount: 10, 'image1': '/img/good1.png', date: '11.23.2021' },
             { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, rate: 4, comment: 3, price: 2772, discount: 10, 'image1': '/img/good1.png', date: '11.23.2021' },
@@ -95,8 +95,8 @@ var app_1 = new Vue({
             }
             return s;
         },
-        anim3() {
-            var animat = document.getElementById('card2');
+        anim3(a) {
+            var animat = document.getElementById(a);
             function draw(timePassed) {
                 animat.scrollBy(12, 0);
             }
@@ -112,22 +112,22 @@ var app_1 = new Vue({
 
             }, 15);
         },
-        anim4() {
-            var animat = document.getElementById('card2');
+        anim4(a) {
+            var animat = document.getElementById(a);
             function draw(timePassed) {
-                animat.scrollBy(-21, 0);
+                animat.scrollBy(-12, 0);
             }
             let start = Date.now();
             let timer = setInterval(function () {
                 let timePassed = Date.now() - start;
 
-                if (timePassed >= 200) {
+                if (timePassed >= 300) {
                     clearInterval(timer);
                     return;
                 }
                 draw(timePassed);
 
-            }, 20);
+            }, 15);
         },
         scr() {
             const anchors = document.querySelectorAll('a[href*="#"]')
