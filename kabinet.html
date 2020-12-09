@@ -60,49 +60,6 @@
                 </div>
             </div>
         </form>
-        <div class="new-items6" v-show="discountPrice3()">
-            <div class="new-items-title title-section">
-                <p class="new-items-title-img title-section-img"><img src="img/Слой_15.png" alt=""></p>
-                <div class="new-items-title-title title-section-title-title">
-                    <p class="new-items-title-tovar title-section-tovar">Желаемые товары</p>
-                </div>
-            </div>
-            <section class="new-items-table" id="card2">
-                <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
-                    <div class="itemCardImg">
-                        <img :src="good.image1" alt="">
-                    </div>
-                    <div v-if="good.discount" class="itemCardDiscount">
-                        -{{good.discount}}%
-                    </div>
-                    <div class="itemCardName">
-                        {{good.name}}
-                    </div>
-                    <div class="item_card_info">
-                        <div class="itemCardCode">
-                            Код товара:{{good.codeOfGood}}
-                        </div>
-                        <div v-for="n in 5" class="itemCardRate">
-                            <img :src="rating(n, good)" alt="">
-                        </div>
-                        <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
-                        <div class="itemCardPrice">
-                            <div v-if="good.discount" class="itemCardDiscountPrice">
-                                {{good.price}}грн.
-                            </div>
-                            <br>
-                            <div class="itemCardPrice2">
-                                {{discountPrice2(good)}}грн.
-                            </div>
-                        </div>
-                    </div>
-                    <button class="itemCardBtn"><a href="tovar.html#1">Купить</a></button>
-                </div>
-                <div class="gg">f</div>
-            </section>
-            <div class="btnItem" @click="anim3('card2')"><img src="img/right-arrow.png" alt=""></div>
-            <div class="btnItem2" @click="anim4('card2')"><img src="img/right-arrow.png" alt=""></div>
-        </div>
     </div>
     <div class="footer">
         <div class="container-footer">

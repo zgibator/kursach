@@ -32,6 +32,9 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
+html{
+    scroll-behavior: smooth;
+}
 body{
     font-family: 'Open Sans';
 }
@@ -160,6 +163,25 @@ h1{
 .new-items, .new-items6{
     position: relative;
 }
+.btn_more{
+    position: relative;
+    display: inline-block;
+    padding: 3px;
+    border: 2px solid #ff9b04;
+    background-color:  #ff9b04;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 10px;
+    color: white;
+    margin-top: 5px;
+    transition: 0.5s;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.btn_more:hover{
+    background-color:  white;
+    color:  #ff9b04;
+}
 .category, .new-items{
     margin: 0 140px;
 }
@@ -214,13 +236,12 @@ box-shadow: 28px 15px 13px rgba(0, 0, 0, 0.35);*/
     border: 1px solid black;
     padding-top: 10px;
     text-align: center;
+    backface-visibility: hidden;
+    box-shadow: 28px 15px 13px rgba(0, 0, 0, 0.35);
 }
 .items-of-category:hover{
     transform: rotateY(180deg);
     box-shadow: 28px 15px 13px rgba(0, 0, 0, 0.0);
-}
-.items-of-category-text:hover{
-    box-shadow: 28px 15px 13px rgba(0, 0, 0, 0.35);
 }
 .category-items-text{
 color: #000000;
@@ -380,6 +401,11 @@ text-align: left;
     font-size: 14px;
     line-height: 24px;
     transition: 0.5s;
+}
+.btn_comment:hover{
+    border: 2px solid  #ff9b04;
+    background: white;
+    color: #ff9b04;
 }
 .itemCardBtn:hover a, .btn_enter:hover a{
     color:  #ff9b04;
@@ -926,15 +952,16 @@ text-align: left;
 }
 .btn_comment{
     border-radius: 10px;
-    border: 1px solid #bbc5b7;
+    border: 2px solid  #ff9b04;
     background-color: #ff9b04;
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
-    line-height: 30px;
+    line-height: 28px;
     width: 100px;
     height: 30px;
     margin: 15px 0 0 0;
+    transition: 0.5s;
 }
 .user_info{
     margin-top: 18px;
@@ -1073,7 +1100,7 @@ text-align: left;
 
 
 .container_user{
-    margin: 0 140px;
+    margin: 0 140px 100px 140px;
 }
 .item_desc_margin{
     margin-top: 60px;
