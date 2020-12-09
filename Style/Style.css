@@ -679,17 +679,64 @@ text-align: left;
     display: flex;
     position: relative;
     width: 650px;
-    max-height: 500px;
+    max-height: 400px;
+}
+.item_img_1{
+    display: flex;
+    margin-top: 1px;
+    position: relative;
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 100px;
 }
 .item_img_1 img{
-    height: 53px;
-    width: 72px;
-    border: 1px solid #a2a2a2;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: 0.3s;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+.item_img_1 img:hover{
+    border: 1px solid green;
+    border-radius: 10px;
+}
+.item_img2_container{
+    display: flex;
+    position: relative;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+    padding: 3px;
+}
+.item_img2_link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#show_img{
+    opacity: 0;
+    visibility: hidden;
+}
+#show_img:target{
+    opacity: 1;
+    visibility: visible;
+}
+.item_img2_container:hover{
+    border: 1px solid green;
+    border-radius: 10px;
 }
 .item_img2{
     max-width: 100%;
     object-fit: contain;
-    max-height: 500px;
+    max-height: 380px;
+    margin: auto;
 }
 .item_buy{
     border-left: 1px solid #b6b4b4;
@@ -1086,6 +1133,7 @@ text-align: left;
 /*popup*/
 
 .popup-reg{
+    display: flex;
     position: fixed;
     background: rgba(0, 0, 0, 0.8);
     top: 0;
@@ -1190,4 +1238,36 @@ text-align: left;
     left: 0;
     width: 100%;
     height: 100%;
+}
+.show_img_exit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    background-color: rgba(88, 88, 88, 0.3);
+}
+.show_img_exit:hover{
+    background-color: rgba(138, 138, 138, 0.3);
+}
+.show_img_exit img{
+    width: 70px;
+    margin: auto;
+}
+.popup_img{
+    border-radius: 10px;
+    object-fit: contain;
+    margin: auto;
+    max-width: 1000px;
+    max-height: 600px;
+}
+.popup_img_container{
+    display: flex;
+    object-fit: contain;
+    background-color: white;
+    width: 1000px;
+    height: 600px;
+    margin: auto;
+    border-radius: 10px;
 }
