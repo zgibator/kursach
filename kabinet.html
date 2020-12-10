@@ -39,27 +39,76 @@
             <div class="user_info_cabinet">
                 <div class="user_info_col1">
                     <div>
-                        <p><span>*</span>Имя</p>
-                        <input type="text"><br>
-                        <p><span>*</span>Фамилия</p>
-                        <input type="text"><br>
-                        <p><span>*</span>Телефон</p>
-                        <input type="text">
+                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Имя</p>
+                        <input class="user_info_col_input" type="text"><br>
+                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Фамилия</p>
+                        <input class="user_info_col_input" type="text"><br>
+                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Телефон</p>
+                        <input class="user_info_col_input" type="text">
                         <button class="itemCardBtn3" type="submit">Обновить</button>
                     </div>
                 </div>
                 <div class="user_info_col2">
                     <div>
-                        <p><span>*</span>Эл. почта</p>
-                        <input type="text"><br>
-                        <p><span>*</span>Логин</p>
-                        <input type="text"><br>
-                        <p><span>*</span>Пароль</p>
-                        <input type="text">
+                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Эл. почта</p>
+                        <input class="user_info_col_input" type="text"><br>
+                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Логин</p>
+                        <input class="user_info_col_input" type="text"><br>
+                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Адрес проживания</p>
+                        <input class="user_info_col_input" type="text">
+                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Пароль</p>
+                        <input class="user_info_col_input" type="text">
                     </div>
                 </div>
             </div>
         </form>
+        <div class="new-items6" v-show="newItem2()">
+            <div class="new-items-title title-section">
+                <p class="new-items-title-img title-section-img"><img src="img/Слой_15.png" alt=""></p>
+                <div class="new-items-title-title title-section-title-title">
+                    <p class="new-items-title-tovar title-section-tovar">Желаемые товары</p>
+                </div>
+            </div>
+            <div class="button_rel">
+                <section class="new-items-table" id="card">
+                    <div v-for="good in itemGood" v-show="newItem(good)" class="itemCard">
+                        <div class="itemCardImg">
+                            <img :src="good.image1" alt="">
+                        </div>
+                        <div v-if="good.discount" class="itemCardDiscount">
+                            -{{good.discount}}%
+                        </div>
+                        <div class="itemCardName">
+                            {{good.name}}
+                        </div>
+                        <div class="item_card_info">
+                            <div class="itemCardCode">
+                                Код товара:{{good.codeOfGood}}
+                            </div>
+                            <div v-for="n in 5" class="itemCardRate">
+                                <img :src="rating(n, good)" alt="">
+                            </div>
+                            <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                            <div class="itemCardPrice">
+                                <div v-if="good.discount" class="itemCardDiscountPrice">
+                                    {{good.price}}грн.
+                                </div>
+                                <br>
+                                <div class="itemCardPrice2">
+                                    {{discountPrice2(good)}}грн.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="itemCardBtn"><a class="item_img2_link" href="tovar.html#1"></a>Купить</button>
+
+                    </div>
+                    <div class="gg">f</div>
+                </section>
+                <div class="btnItem" @click="anim3('card')"><img src="img/right-arrow.png" alt=""></div>
+                <div class="btnItem2" @click="anim4('card')"><img src="img/right-arrow.png" alt=""></div>
+            </div>
+            <div class="btn_more"><a class="item_img2_link" href="tovari.html#1"></a>Показать больше</div>
+        </div>
     </div>
     <div class="footer">
         <div class="container-footer">

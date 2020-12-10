@@ -33,7 +33,7 @@
                 <div class="cart_item1">
                     <span class="cart_text">Товар</span>
                     <div class="item_info">
-                        <img src="img/good1.png" alt="">
+                        <img src="img/guitar3.jpg" alt="">
                         <div class="item_info2">
                             <p class="item_name2">ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK</p>
                             <div class="item_rating">
@@ -46,26 +46,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart_item2">
-                    <span class="cart_text">Цена за шт. грн</span>
-                    <p class="cart_text2">2772</p>
-                </div>
-                <div class="cart_item3">
-                    <span class="cart_text">Количество</span>
-                    <div class="input_count">
-                        <img src="img/icons/minus.png" alt="">
-                        <input type="text" value="1" class="item_buy_input">
-                        <img src="img/icons/plus.png" alt="">
+                <div class="card_item">
+                    <div class="cart_item2 card_item_1">
+                        <span class="cart_text">Цена за шт. грн</span>
+                        <p class="cart_text2">2772</p>
+                    </div>
+                    <div class="cart_item3 card_item_1">
+                        <span class="cart_text">Количество</span>
+                        <div class="input_count">
+                            <img src="img/icons/minus.png" alt="">
+                            <input type="text" value="1" class="item_buy_input">
+                            <img src="img/icons/plus.png" alt="">
+                        </div>
+                    </div>
+                    <div class="cart_item4 card_item_1">
+                        <span class="cart_text">Стоимость, грн</span>
+                        <p class="cart_text2">2772</p>
+                        <a class="link_delete"><img class="cart_item4_img"
+                                src="img/icons/seo-social-web-network-internet_262_icon-icons.com_61518.png" alt=""></a>
                     </div>
                 </div>
-                <div class="cart_item4">
-                    <span class="cart_text">Стоимость, грн</span>
-                    <p class="cart_text2">2772</p>
-                    <button><img class="cart_item4_img"
-                            src="img/icons/seo-social-web-network-internet_262_icon-icons.com_61518.png"
-                            alt=""></button>
-                </div>
-
             </div>
         </div>
         <div class="nav1">
@@ -81,7 +81,7 @@
                 </button>
             </div>
             <div>
-                <button class="btn_confirm"><a class="item_img2_link" href=""></a>Оформить заказ</button>
+                <button class="btn_confirm"><a class="item_img2_link" href="zakaz.html#1"></a>Оформить заказ</button>
                 <span class="total_cart_price">Итого:</span>
                 <span class="total_cart_price2">2772грн</span>
             </div>
@@ -93,48 +93,50 @@
                     <p class="new-items-title-tovar title-section-tovar">Скидки</p>
                 </div>
             </div>
-            <section class="new-items-table" id="card2">
-                <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
-                    <div class="itemCardImg">
-                        <img :src="good.image1" alt="">
-                    </div>
-                    <div v-if="good.discount" class="itemCardDiscount">
-                        -{{good.discount}}%
-                    </div>
-                    <div class="itemCardName">
-                        {{good.name}}
-                    </div>
-                    <div class="item_card_info">
-                        <div class="itemCardCode">
-                            Код товара:{{good.codeOfGood}}
+            <div class="button_rel">
+                <section class="new-items-table" id="card2">
+                    <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
+                        <div class="itemCardImg">
+                            <img :src="good.image1" alt="">
                         </div>
-                        <div v-for="n in 5" class="itemCardRate">
-                            <img :src="rating(n, good)" alt="">
+                        <div v-if="good.discount" class="itemCardDiscount">
+                            -{{good.discount}}%
                         </div>
-                        <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
-                        <div class="itemCardPrice">
-                            <div v-if="good.discount" class="itemCardDiscountPrice">
-                                {{good.price}}грн.
+                        <div class="itemCardName">
+                            {{good.name}}
+                        </div>
+                        <div class="item_card_info">
+                            <div class="itemCardCode">
+                                Код товара:{{good.codeOfGood}}
                             </div>
-                            <br>
-                            <div class="itemCardPrice2">
-                                {{discountPrice2(good)}}грн.
+                            <div v-for="n in 5" class="itemCardRate">
+                                <img :src="rating(n, good)" alt="">
+                            </div>
+                            <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                            <div class="itemCardPrice">
+                                <div v-if="good.discount" class="itemCardDiscountPrice">
+                                    {{good.price}}грн.
+                                </div>
+                                <br>
+                                <div class="itemCardPrice2">
+                                    {{discountPrice2(good)}}грн.
+                                </div>
                             </div>
                         </div>
+                        <button class="itemCardBtn"><a class="item_img2_link" href="tovar.html#1"></a>Купить</button>
                     </div>
-                    <button class="itemCardBtn"><a class="item_img2_link" href="tovar.html#1"></a>Купить</button>
-                </div>
-                <div class="gg">f</div>
-            </section>
-            <div class="btnItem" @click="anim3('card2')"><img src="img/right-arrow.png" alt=""></div>
-            <div class="btnItem2" @click="anim4('card2')"><img src="img/right-arrow.png" alt=""></div>
+                    <div class="gg">f</div>
+                </section>
+                <div class="btnItem" @click="anim3('card2')"><img src="img/right-arrow.png" alt=""></div>
+                <div class="btnItem2" @click="anim4('card2')"><img src="img/right-arrow.png" alt=""></div>
+            </div>
             <div class="btn_more"><a class="item_img2_link" href="tovari.html#1"></a>Показать больше</div>
         </div>
         <div class="footer">
             <div class="container-footer">
                 <div class="footer-left foot">
                     <p class="footer-left-logo">Logo</p>
-                    <p class="footer-left-p">Интернет-магазин музыкальных инструментов </p>
+                    <p class="footer-left-p">Интернет-магазин музыкальных инструментов</p>
                 </div>
                 <div class="footer-center foot">
                     <p class="footer-center-title">Навигация</p>

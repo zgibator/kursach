@@ -421,7 +421,7 @@ text-align: left;
     opacity: 0.75;
     border-radius: 1px;
     position: absolute;
-    top: 66%;
+    top: 50%;
     transform: translateY(-50%);
     right: 0;
 }
@@ -432,7 +432,10 @@ text-align: left;
     opacity: 0.75;
     border-radius: 1px;
     position: absolute;
-    top: 66%;
+    top: 50%;
+}
+.button_rel{
+    position: relative;
 }
 .btnItem:active, .btnItem2:active{
     background: rgb(0, 110, 255);
@@ -526,7 +529,9 @@ text-align: left;
     display: grid;
     grid-template-columns: 281px 630px;
     column-gap: 10px;
-    margin: 25px 140px 0 140px;
+    width: 923px;
+    margin: 25px auto 0 auto;
+    border: 1px solid red;
 }
 .filter_content{
     width: 281px;
@@ -677,6 +682,10 @@ text-align: left;
     display: block;
     position: relative;
 }
+.container2{
+    position: relative;
+    margin: 0 140px;
+}
 
 
 /*Tovar*/
@@ -700,6 +709,14 @@ text-align: left;
 .item_info{
     display: flex;
     margin-top: 1px;
+    min-height: 180px;
+}
+.item_info img{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    max-height: 180px;
+    margin: auto;
 }
 .item_img{
     display: flex;
@@ -987,19 +1004,21 @@ text-align: left;
 /*Корзина*/
 
 .container_cart{
-    margin: 25px 140px 0 140px;
+    margin: 15px auto 0 auto;
+    width: 920px;
     border-top: 1px solid #b6b4b4;
     border-bottom: 1px solid #b6b4b4;
 }
 .container_cart_title{
     display: flex;
+    justify-content: space-between;
 }
 .cart_item1{
     max-width: 52%;
 }
 .cart_text{
     color: #626262;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
 }
 .item_info2{
@@ -1034,16 +1053,8 @@ text-align: left;
     display: inline-block;
     margin-top: 10px;
 }
-.cart_item2{
-    width: 16%;
-    margin-left: 10px;
-}
-.cart_item3{
-    width: 16%;
-}
 .cart_item4{
     position: relative;
-    width: 16%;
 }
 .item_info{
     margin-top: 10px;
@@ -1053,18 +1064,30 @@ text-align: left;
     font-weight: 700;
     margin-top: 10px;
 }
-.cart_item4_img{
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.card_item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.card_item_1{
+    margin: 0 20px;
+}
+.card_item_1:last-child{
+    margin: 0 0 0 20px;
 }
 .nav1{
     display: flex;
     margin: 10px 140px 0 140px;
     justify-content: space-between;
 }
+.link_delete{
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+}
 .btn_confirm{
     display: inline;
+    position: relative;
     width: 165px;
     height: 39px;
     border-radius: 10px;
@@ -1108,23 +1131,22 @@ text-align: left;
 }
 .user_info_cabinet{
     display: flex;
-    margin-top: 20px;
+    border: 1px solid red;
 }
-.user_info_cabinet span{
+.user_info_col_span{
     color: red;
     font-size: 16px;
 }
 .user_info_col1, .user_info_col2{
     width: 50%;
-    height: 240px;
 }
-.user_info_col1 p, .user_info_col2 p{
+.user_info_col_p{
     display: inline-block;
-    width: 100px;
     font-size: 16px;
     font-weight: 500;
+    width: 200px;
 }
-.user_info_col1 input, .user_info_col2 input{
+.user_info_col_input{
     width: 207px;
     height: 29px;
     border-radius: 3px;
@@ -1137,7 +1159,7 @@ text-align: left;
 }
 .itemCardBtn3{
     width: 108px;
-    height: 39px;
+    height: 33px;
     border-radius: 10px;
     border: 2px solid white;
     background-color: #ff9b04;
@@ -1145,6 +1167,7 @@ text-align: left;
     font-size: 19px;
     line-height: 24px;
     font-weight: 500;
+    margin-top: 20px;
 }
 .itemCardBtn3:hover{
     border:2px solid #ff9b04;
@@ -1297,4 +1320,117 @@ text-align: left;
     height: 600px;
     margin: auto;
     border-radius: 10px;
+}
+
+
+/*zakaz*/
+.container_zakaz{
+    width: 920px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.user_details_enter{
+    font-size: 18px;
+    font-weight: 700;
+}
+.user_details_enter a{
+    color: #004c93;
+}
+.user_details_form{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.container_delivery{
+    width: 200px;
+    height: 220px;
+    border: 1px solid #b6b4b4;
+    background-color: #f9f9f9;
+    padding: 5px;
+}
+.title{
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+.delivery_text span{
+    font-size: 16px;
+    font-weight: 700;
+    color: red;
+}
+.text{
+    font-size: 14px;
+    margin-top: 3px;
+}
+.item_description2{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 20px 0;
+}
+.item_description2::before{
+    display:inline;
+    content: '  1  ';
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    background: url(https://zgibator.github.io/kursach/img/elips.png) no-repeat;
+    background-position: center center;
+    color: white;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+}
+.order_title_text::before{
+    display:inline;
+    content: '  2  ';
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    background: url(https://zgibator.github.io/kursach/img/elips.png) no-repeat;
+    background-position: center center;
+    color: white;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+}
+.container_deliv{
+    margin-top: 30px;
+}
+.deliv_title_text{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+}
+.deliv_title_text::before{
+    display:inline;
+    content: '  3  ';
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    background: url(https://zgibator.github.io/kursach/img/elips.png) no-repeat;
+    background-position: center center;
+    color: white;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+}
+.order_title_text{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 20px 0;
+}
+.order_title{
+    display: flex;
+    justify-content: space-between;
+}
+.total_price{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 20px 0;
 }

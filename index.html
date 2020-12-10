@@ -203,42 +203,44 @@
                     <p class="new-items-title-tovar title-section-tovar">Новинки</p>
                 </div>
             </div>
-            <section class="new-items-table" id="card">
-                <div v-for="good in itemGood" v-show="newItem(good)" class="itemCard">
-                    <div class="itemCardImg">
-                        <img :src="good.image1" alt="">
-                    </div>
-                    <div v-if="good.discount" class="itemCardDiscount">
-                        -{{good.discount}}%
-                    </div>
-                    <div class="itemCardName">
-                        {{good.name}}
-                    </div>
-                    <div class="item_card_info">
-                        <div class="itemCardCode">
-                            Код товара:{{good.codeOfGood}}
+            <div class="button_rel">
+                <section class="new-items-table" id="card">
+                    <div v-for="good in itemGood" v-show="newItem(good)" class="itemCard">
+                        <div class="itemCardImg">
+                            <img :src="good.image1" alt="">
                         </div>
-                        <div v-for="n in 5" class="itemCardRate">
-                            <img :src="rating(n, good)" alt="">
+                        <div v-if="good.discount" class="itemCardDiscount">
+                            -{{good.discount}}%
                         </div>
-                        <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
-                        <div class="itemCardPrice">
-                            <div v-if="good.discount" class="itemCardDiscountPrice">
-                                {{good.price}}грн.
+                        <div class="itemCardName">
+                            {{good.name}}
+                        </div>
+                        <div class="item_card_info">
+                            <div class="itemCardCode">
+                                Код товара:{{good.codeOfGood}}
                             </div>
-                            <br>
-                            <div class="itemCardPrice2">
-                                {{discountPrice2(good)}}грн.
+                            <div v-for="n in 5" class="itemCardRate">
+                                <img :src="rating(n, good)" alt="">
+                            </div>
+                            <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                            <div class="itemCardPrice">
+                                <div v-if="good.discount" class="itemCardDiscountPrice">
+                                    {{good.price}}грн.
+                                </div>
+                                <br>
+                                <div class="itemCardPrice2">
+                                    {{discountPrice2(good)}}грн.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button class="itemCardBtn"><a class="item_img2_link" href="tovar.html#1"></a>Купить</button>
+                        <button class="itemCardBtn"><a class="item_img2_link" href="tovar.html#1"></a>Купить</button>
 
-                </div>
-                <div class="gg">f</div>
-            </section>
-            <div class="btnItem" @click="anim3('card')"><img src="img/right-arrow.png" alt=""></div>
-            <div class="btnItem2" @click="anim4('card')"><img src="img/right-arrow.png" alt=""></div>
+                    </div>
+                    <div class="gg">f</div>
+                </section>
+                <div class="btnItem" @click="anim3('card')"><img src="img/right-arrow.png" alt=""></div>
+                <div class="btnItem2" @click="anim4('card')"><img src="img/right-arrow.png" alt=""></div>
+            </div>
             <div class="btn_more"><a class="item_img2_link" href="tovari.html#1"></a>Показать больше</div>
         </div>
         <div class="new-items" v-show="discountPrice3()">
@@ -248,41 +250,43 @@
                     <p class="new-items-title-tovar title-section-tovar">Скидки</p>
                 </div>
             </div>
-            <section class="new-items-table" id="card2">
-                <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
-                    <div class="itemCardImg">
-                        <img :src="good.image1" alt="">
-                    </div>
-                    <div v-if="good.discount" class="itemCardDiscount">
-                        -{{good.discount}}%
-                    </div>
-                    <div class="itemCardName">
-                        {{good.name}}
-                    </div>
-                    <div class="item_card_info">
-                        <div class="itemCardCode">
-                            Код товара:{{good.codeOfGood}}
+            <div class="button_rel">
+                <section class="new-items-table" id="card2">
+                    <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
+                        <div class="itemCardImg">
+                            <img :src="good.image1" alt="">
                         </div>
-                        <div v-for="n in 5" class="itemCardRate">
-                            <img class="itemCardRate3" :src="rating(n, good)" alt="">
+                        <div v-if="good.discount" class="itemCardDiscount">
+                            -{{good.discount}}%
                         </div>
-                        <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
-                        <div class="itemCardPrice">
-                            <div v-if="good.discount" class="itemCardDiscountPrice">
-                                {{good.price}}грн.
+                        <div class="itemCardName">
+                            {{good.name}}
+                        </div>
+                        <div class="item_card_info">
+                            <div class="itemCardCode">
+                                Код товара:{{good.codeOfGood}}
                             </div>
-                            <br>
-                            <div class="itemCardPrice2">
-                                {{discountPrice2(good)}}грн.
+                            <div v-for="n in 5" class="itemCardRate">
+                                <img class="itemCardRate3" :src="rating(n, good)" alt="">
+                            </div>
+                            <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                            <div class="itemCardPrice">
+                                <div v-if="good.discount" class="itemCardDiscountPrice">
+                                    {{good.price}}грн.
+                                </div>
+                                <br>
+                                <div class="itemCardPrice2">
+                                    {{discountPrice2(good)}}грн.
+                                </div>
                             </div>
                         </div>
+                        <button class="itemCardBtn"><a class="item_img2_link" href="tovar.html#1"></a>Купить</button>
                     </div>
-                    <button class="itemCardBtn"><a class="item_img2_link" href="tovar.html#1"></a>Купить</button>
-                </div>
-                <div class="gg">f</div>
-            </section>
-            <div class="btnItem" @click="anim3('card2')"><img src="img/right-arrow.png" alt=""></div>
-            <div class="btnItem2" @click="anim4('card2')"><img src="img/right-arrow.png" alt=""></div>
+                    <div class="gg">f</div>
+                </section>
+                <div class="btnItem" @click="anim3('card2')"><img src="img/right-arrow.png" alt=""></div>
+                <div class="btnItem2" @click="anim4('card2')"><img src="img/right-arrow.png" alt=""></div>
+            </div>
             <div class="btn_more"><a class="item_img2_link" href="tovari.html#1"></a>Показать больше</div>
         </div>
     </div>
