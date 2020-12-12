@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="Style/Style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,142 +11,144 @@
 </head>
 
 <body>
-
-    <div id="1" class="containerHeader">
-        <header>
-            <span class="logo">Logo</span>
-            <div class="navigation">
-                <a href="index.html#1" class="navItem">Главная</a>
-                <a href="index.html#kat" class="navItem">Категории</a>
-                <a href="korzina.html#1" class="navItem">Корзина</a>
-                <a href="kabinet.html#1" class="navItem">Личный кабинет</a>
-                <input type="text" class="searchInput" placeholder="Поиск товара"><button class="searchButton"><img
-                        src="img/icons/search.svg" alt=""></button>
-            </div>
-        </header>
-    </div>
-    <div class="container_section">
-        <p class="container_section_text">Оформление заказа</p>
-    </div>
-    <div class="container_zakaz">
-        <div class="user_details">
-            <div class="user_details1">
-                <div class="user_details_title">
-                    <p class="item_description2">Ваши контактные данные</p>
-                    <p class="user_details_enter">Введите данные или <a href="#registr">войдите в личный кабинет</a></p>
+    <div id="app_1">
+        <div id="1" class="containerHeader">
+            <header>
+                <span class="logo">Logo</span>
+                <div class="navigation">
+                    <a href="index.html#1" class="navItem">Главная</a>
+                    <a href="index.html#kat" class="navItem">Категории</a>
+                    <a href="korzina.html#1" class="navItem">Корзина<div class="cart_counter">{{cart.length}}</div></a>
+                    <a href="kabinet.html#1" class="navItem">Личный кабинет</a>
+                    <input type="text" class="searchInput" placeholder="Поиск товара"><button class="searchButton"><img
+                            src="img/icons/search.svg" alt=""></button>
                 </div>
-                <div class="user_details_form">
-                    <div class="user_details_form1">
-                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Имя</p>
-                        <input class="user_info_col_input" type="text"><br>
-                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Фамилия</p>
-                        <input class="user_info_col_input" type="text"><br>
-                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Телефон</p>
-                        <input class="user_info_col_input" type="text"><br>
-                        <p class="user_info_col_p"><span class="user_info_col_span">*</span>Адрес проживания</p>
-                        <input class="user_info_col_input" type="text"><br>
-                    </div>
-                    <div class="info_delivery">
-                        <div class="container_delivery">
-                            <div class="delivery_text">
-                                <p class="title"><img src="img/icons/delivery.png" alt="">Доставка</p>
-                                <span>По всей Украине</span>
-                                <p class="text">- Самовывоз из пункта службы доставки</p>
-                            </div>
-                            <div class="pay_text">
-                                <p class="title"><img src="img/icons/coin.png" alt="">Оплата</p>
-                                <p class="text">- Наличными в пункте службы доставки</p>
-                            </div>
-                            <div class="varanty_text">
-                                <p class="title"><img src="img/icons/varanty.png" alt="">Гарантия</p>
-                                <p class="text">- 12 месяцев гарантии от производителя</p>
-                                <p class="text">- обмен/возврат товара в течении 14 дней</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </header>
         </div>
-        <div class="container_order">
-            <div class="order_title">
-                <span class="order_title_text">Ваш заказ</span><span class="total_price">На сумму: 23000 грн</span>
-            </div>
-            <div class="container_cart">
-                <div class="container_cart_title">
-                    <div class="cart_item1">
-                        <span class="cart_text">Товар</span>
-                        <div class="item_info">
-                            <img src="img/guitar3.jpg" alt="">
-                            <div class="item_info2">
-                                <p class="item_name2">ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK</p>
-                                <div class="item_rating">
-                                    <p>Код товара: 1253</p>
-                                    <div>
-                                        <span class="item_rate" v-for="n in 5"><img src="img/rated.png" alt=""></span>
-                                        <a class="itemCardComment" href="tovar.html#coment">Отзывы:3</a>
-                                    </div>
+        <div class="container_section">
+            <p class="container_section_text">Оформление заказа</p>
+        </div>
+        <div class="container_zakaz">
+            <div class="user_details">
+                <div class="user_details1">
+                    <div class="user_details_title">
+                        <p class="item_description2">Ваши контактные данные</p>
+                        <p class="user_details_enter">Введите данные или <a href="#registr">войдите в личный кабинет</a>
+                        </p>
+                    </div>
+                    <div class="user_details_form">
+                        <div class="user_details_form1">
+                            <p class="user_info_col_p"><span class="user_info_col_span">*</span>Имя</p>
+                            <input class="user_info_col_input" type="text"><br>
+                            <p class="user_info_col_p"><span class="user_info_col_span">*</span>Фамилия</p>
+                            <input class="user_info_col_input" type="text"><br>
+                            <p class="user_info_col_p"><span class="user_info_col_span">*</span>Телефон</p>
+                            <input class="user_info_col_input" type="text"><br>
+                            <p class="user_info_col_p"><span class="user_info_col_span">*</span>Адрес проживания</p>
+                            <input class="user_info_col_input" type="text"><br>
+                        </div>
+                        <div class="info_delivery">
+                            <div class="container_delivery">
+                                <div class="delivery_text">
+                                    <p class="title"><img src="img/icons/delivery.png" alt="">Доставка</p>
+                                    <span>По всей Украине</span>
+                                    <p class="text">- Самовывоз из пункта службы доставки</p>
+                                </div>
+                                <div class="pay_text">
+                                    <p class="title"><img src="img/icons/coin.png" alt="">Оплата</p>
+                                    <p class="text">- Наличными в пункте службы доставки</p>
+                                </div>
+                                <div class="varanty_text">
+                                    <p class="title"><img src="img/icons/varanty.png" alt="">Гарантия</p>
+                                    <p class="text">- 12 месяцев гарантии от производителя</p>
+                                    <p class="text">- обмен/возврат товара в течении 14 дней</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card_item">
-                        <div class="cart_item2 card_item_1">
-                            <span class="cart_text">Цена за шт. грн</span>
-                            <p class="cart_text2">2772</p>
-                        </div>
-                        <div class="cart_item3 card_item_1">
-                            <span class="cart_text">Количество</span>
-                            <div class="input_count">
-                                <img src="img/icons/minus.png" alt="">
-                                <input type="text" value="1" class="item_buy_input">
-                                <img src="img/icons/plus.png" alt="">
+                </div>
+            </div>
+            <div class="container_order">
+                <div class="order_title">
+                    <span class="order_title_text">Ваш заказ</span><span class="total_price">На сумму: 23000 грн</span>
+                </div>
+                <div class="container_cart">
+                    <div class="container_cart_title">
+                        <div class="cart_item1">
+                            <span class="cart_text">Товар</span>
+                            <div class="item_info">
+                                <img class="item_info_img" src="img/guitar3.jpg" alt="">
+                                <div class="item_info2">
+                                    <p class="item_name2">ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK</p>
+                                    <div class="item_rating">
+                                        <p>Код товара: 1253</p>
+                                        <div>
+                                            <span class="item_rate" v-for="n in 5"><img src="img/rated.png"
+                                                    alt=""></span>
+                                            <a class="itemCardComment" href="tovar.html#coment">Отзывы:3</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="cart_item4 card_item_1">
-                            <span class="cart_text">Стоимость, грн</span>
-                            <p class="cart_text2">2772</p>
-                            <a class="link_delete"><img class="cart_item4_img"
-                                    src="img/icons/seo-social-web-network-internet_262_icon-icons.com_61518.png"
-                                    alt=""></a>
+                        <div class="card_item">
+                            <div class="cart_item2 card_item_1">
+                                <span class="cart_text">Цена за шт. грн</span>
+                                <p class="cart_text2">2772</p>
+                            </div>
+                            <div class="cart_item3 card_item_1">
+                                <span class="cart_text">Количество</span>
+                                <div class="input_count">
+                                    <img src="img/icons/minus.png" alt="">
+                                    <input type="text" value="1" class="item_buy_input">
+                                    <img src="img/icons/plus.png" alt="">
+                                </div>
+                            </div>
+                            <div class="cart_item4 card_item_1">
+                                <span class="cart_text">Стоимость, грн</span>
+                                <p class="cart_text2">2772</p>
+                                <a class="link_delete"><img class="cart_item4_img"
+                                        src="img/icons/seo-social-web-network-internet_262_icon-icons.com_61518.png"
+                                        alt=""></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container_deliv">
-            <div class="deliv_title">
-                <span class="deliv_title_text">Доставка</span>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="container-footer">
-            <div class="footer-left foot">
-                <p class="footer-left-logo">Logo</p>
-                <p class="footer-left-p">Интернет-магазин музыкальных инструментов </p>
-            </div>
-            <div class="footer-center foot">
-                <p class="footer-center-title">Навигация</p>
-                <p class="footer-center-items"><a href="index.html#1">Главная</a></p>
-                <p class="footer-center-items"><a href="index.html#kat">Категории</a></p>
-                <p class="footer-center-items"><a href="tovari.html#1">Скидки</a></p>
-                <p class="footer-center-items"><a href="tovari.html#1">Новинки</a></p>
-                <p class="footer-center-items"><a href="korzina.html#1">Корзина</a></p>
-                <p class="footer-center-items"><a href="#">Личный кабинет</a></p>
-            </div>
-            <div class="footer-right foot">
-                <p class="footer-center-title">Свяжитесь с нами</p>
-                <div class="footer-icons">
-                    <a href="#"><img src="img/instagram.png" alt=""></a>
-                    <a href="#"><img src="img/telegram.png" alt=""></a>
-                    <a href="#"><img src="img/vk.png" alt=""></a>
+            <div class="container_deliv">
+                <div class="deliv_title">
+                    <span class="deliv_title_text">Доставка</span>
                 </div>
-                <p class="footer-phone">Телефон: +380 68 232 22 34</p>
-                <p class="footer-phone">Эл. почта: 1234@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container-footer">
+                <div class="footer-left foot">
+                    <p class="footer-left-logo">Logo</p>
+                    <p class="footer-left-p">Интернет-магазин музыкальных инструментов </p>
+                </div>
+                <div class="footer-center foot">
+                    <p class="footer-center-title">Навигация</p>
+                    <p class="footer-center-items"><a href="index.html#1">Главная</a></p>
+                    <p class="footer-center-items"><a href="index.html#kat">Категории</a></p>
+                    <p class="footer-center-items"><a href="tovari.html#1">Скидки</a></p>
+                    <p class="footer-center-items"><a href="tovari.html#1">Новинки</a></p>
+                    <p class="footer-center-items"><a href="korzina.html#1">Корзина</a></p>
+                    <p class="footer-center-items"><a href="#">Личный кабинет</a></p>
+                </div>
+                <div class="footer-right foot">
+                    <p class="footer-center-title">Свяжитесь с нами</p>
+                    <div class="footer-icons">
+                        <a href="#"><img src="img/instagram.png" alt=""></a>
+                        <a href="#"><img src="img/telegram.png" alt=""></a>
+                        <a href="#"><img src="img/vk.png" alt=""></a>
+                    </div>
+                    <p class="footer-phone">Телефон: +380 68 232 22 34</p>
+                    <p class="footer-phone">Эл. почта: 1234@gmail.com</p>
+                </div>
             </div>
         </div>
     </div>
-
     <div id="registr" class="popup-reg">
         <a href="#obj" class="popup_link"></a>
         <div class="popup_body">
@@ -185,6 +188,7 @@
     <div id="obj" class="obj"></div>
     <div id="obj2" class="obj"></div>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="scripts/script.js"></script>
 </body>
