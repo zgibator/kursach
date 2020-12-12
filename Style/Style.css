@@ -57,7 +57,7 @@ body{
     height: 66px;
 }
 .navItem{
-    margin: 0 23px;
+    margin: 0 13px;
     color: black;
     text-align: left;
     font-size: 18px;
@@ -202,8 +202,6 @@ h1{
     text-align: center;
     margin-top: 32px;
 }
-/*border: 1px solid red;
-box-shadow: 28px 15px 13px rgba(0, 0, 0, 0.35);*/
 .category-items, .new-items-table{
     margin-top: 50px;
 }
@@ -538,7 +536,6 @@ text-align: left;
     column-gap: 10px;
     width: 923px;
     margin: 25px auto 0 auto;
-    border: 1px solid red;
 }
 .filter_content{
     width: 281px;
@@ -1020,12 +1017,28 @@ text-align: left;
     height: 150px;
     resize: none;
 }
-.u_comment_rating{
-    margin: 0 1px;
+.u_comment_rating1{
+    display: inline-block;
+    position: relative;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.u_comment_rating1 span{
+    margin-left: -5px;
+    padding: 0 1px;
 }
 .u_comment_rate_text{
     font-size: 14px;
     font-weight: 300;
+}
+.u_comment_rate_text1{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.u_comment_rate_text1 img{
+    margin: 0 1px;
 }
 .u_comment_rate{
     margin-top: 5px;
@@ -1059,7 +1072,7 @@ text-align: left;
 .user_name_comment{
     margin: 10px 0;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 18px;
     padding-bottom: 13px;
     border-bottom: 1px solid #b6b4b4;
 }
@@ -1193,7 +1206,6 @@ text-align: left;
 }
 .user_info_cabinet{
     display: flex;
-    border: 1px solid red;
 }
 .user_info_col_span{
     color: red;

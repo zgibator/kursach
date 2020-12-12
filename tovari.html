@@ -116,7 +116,7 @@
                                         <img :src="rating(n, good)" alt="">
                                     </div>
                                     <span><a class="itemCardComment"
-                                            href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                                            href="tovar.html#coment">Отзывы:{{good.comment.length}}</a></span>
                                     <div class="itemCardPrice">
                                         <div v-if="good.discount" class="itemCardDiscountPrice">
                                             {{good.price}}грн.

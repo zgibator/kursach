@@ -33,38 +33,40 @@
         </div>
         <div class="container_tovar">
             <p>
-            <p class="item_name">{{itemGood[0].name}}</p>
-            <p class="discount" v-if="itemGood[0].discount>0">-{{itemGood[0].discount}}%</p>
+            <p class="item_name">{{itemGood[indexT].name}}</p>
+            <p class="discount" v-if="itemGood[indexT].discount>0">-{{itemGood[indexT].discount}}%</p>
             </p>
             <div class="item_info">
                 <div class="item_img">
                     <div id="prev_img" class="item_img1">
-                        <div class="item_img_1" v-for="(image, index) in itemGood[0].image2"
-                            @click="a=itemGood[0].image2[index]">
+                        <div class="item_img_1" v-for="(image, index) in itemGood[indexT].image2"
+                            @click="a=itemGood[indexT].image2[index]">
                             <a class="item_img2_link" href="#obj"></a><img class="item_info_img_prev" :src="image"
                                 alt="">
                         </div>
                     </div>
                     <div class="item_img2_container">
                         <a class="item_img2_link" href="#show_img"></a>
-                        <img class="item_img2" :src="a.length==0 ? a=itemGood[0].image2[0] : a" alt="">
+                        <img class="item_img2" :src="a.length==0 ? a=itemGood[indexT].image2[0] : a" alt="">
                     </div>
-                    <div v-if="itemGood[0].image2.length>4" @click="animScrollImgUp('prev_img')"
+                    <div v-if="itemGood[indexT].image2.length>4" @click="animScrollImgUp('prev_img')"
                         class="item_img_arrow_up">
                         <img src="img/icons/arrow_up.png" alt="">
                     </div>
-                    <div v-if="itemGood[0].image2.length>4" @click="animScrollImgDown('prev_img')"
+                    <div v-if="itemGood[indexT].image2.length>4" @click="animScrollImgDown('prev_img')"
                         class="item_img_arrow_down">
                         <img src="img/icons/arrow_up.png" alt="">
                     </div>
                 </div>
                 <div class="item_buy">
-                    <p class="item_buy_text">Код товара: {{itemGood[0].codeOfGood}}</p>
-                    <p class="item_buy_text">Производитель: {{itemGood[0].proizvoditel}}</p>
+                    <p class="item_buy_text">Код товара: {{itemGood[indexT].codeOfGood}}</p>
+                    <p class="item_buy_text">Производитель: {{itemGood[indexT].proizvoditel}}</p>
                     <span class="item_buy_text">Цена:</span>
-                    <p class="item_buy_price_dis" v-if="itemGood[0].discount>0">{{itemGood[0].price}}грн.</p><br>
-                    <p :class="{item_buy_price:itemGood[0].discount>0, item_buy_price2:itemGood[0].discount==0 }">
-                        {{price=discountPrice2(itemGood[0])}}грн.</p>
+                    <p class="item_buy_price_dis" v-if="itemGood[indexT].discount>0">{{itemGood[indexT].price}}грн.</p>
+                    <br>
+                    <p
+                        :class="{item_buy_price:itemGood[indexT].discount>0, item_buy_price2:itemGood[indexT].discount==0 }">
+                        {{price=discountPrice2(itemGood[indexT])}}грн.</p>
                     <div class="input_count">
                         <img @click="counterOfGood==1||counterOfGood=='' ? counterOfGood=1 : counterOfGood--"
                             :class="{btn_counter: counterOfGood==1}" src="img/icons/minus.png" alt="">
@@ -75,14 +77,12 @@
                     </div>
                     <p class="item_buy_text_total">Итого:</p>
                     <span class="item_buy_price_total">{{totalPrice=price*counterOfGood}}грн.</span>
-                    <button @click="addToCart(itemGood[0], counterOfGood)" class="item_buy_btn"> В корзину</button>
+                    <button @click="addToCart(itemGood[indexT], counterOfGood)" class="item_buy_btn"> В корзину</button>
                     <div class="rating">
-                        <img class="itemCardRate2" src="img/rated.png" alt="">
-                        <img class="itemCardRate2" src="img/rated.png" alt="">
-                        <img class="itemCardRate2" src="img/rated.png" alt="">
-                        <img class="itemCardRate2" src="img/rated.png" alt="">
-                        <img class="itemCardRate2" src="img/unrated.png" alt="">
-                        <a class="itemCardComment2" href="#coment">Отзывы:3</a>
+                        <span v-for="n in 5">
+                            <img class="user_name_rate" :src="rating(n, itemGood[indexT].comment)" alt="">
+                        </span>
+                        <a class="itemCardComment2" href="#coment">Отзывы:{{itemGood[indexT].comment.length}}</a>
                         <div class="writeComment">
                             <img class="commentImg" src="img/icons/pen.png" alt="">
                             <a class="itemCardComment2" href="#com">Написать отзыв</a>
@@ -92,10 +92,10 @@
             </div>
             <div class="descr">
                 <p class="item_description">Описание товара</p>
-                <p class="item_description_text">{{itemGood[0].description}}</p>
+                <p class="item_description_text">{{itemGood[indexT].description}}</p>
                 <p class="item_description">Технические характеристики</p>
                 <p class="item_description_char">
-                    {{itemGood[0].specific}}
+                    {{itemGood[indexT].specific}}
                 </p>
             </div>
             <div class="new-items2" v-show="discountPrice3()">
@@ -107,7 +107,9 @@
                 </div>
                 <div class="button_rel">
                     <section class="new-items-table" id="card2">
-                        <div v-for="good in itemGood" v-show="good.discount" class="itemCard">
+                        <div v-for="good in itemGood"
+                            v-show="itemGood[indexT].proizvoditel==good.proizvoditel&&itemGood[indexT].name==good.name&&itemGood[indexT].codeOfGood!=good.codeOfGood"
+                            class="itemCard">
                             <div class="itemCardImg">
                                 <img :src="good.image1" alt="">
                             </div>
@@ -122,9 +124,10 @@
                                     Код товара:{{good.codeOfGood}}
                                 </div>
                                 <div v-for="n in 5" class="itemCardRate">
-                                    <img :src="rating(n, good)" alt="">
+                                    <img :src="rating(n, good.comment)" alt="">
                                 </div>
-                                <span><a class="itemCardComment" href="#coment">Отзывы:{{good.comment}}</a></span>
+                                <span><a class="itemCardComment"
+                                        href="#coment">Отзывы:{{good.comment.length}}</a></span>
                                 <div class="itemCardPrice">
                                     <div v-if="good.discount" class="itemCardDiscountPrice">
                                         {{good.price}}грн.
@@ -156,27 +159,40 @@
                     <form action="">
                         <p class="write_comment">Написать отзыв</p>
                         <p class="u_comment_text">Ваш отзыв</p>
-                        <textarea class="u_comment_textarea" name="" maxlength="1000" id=""></textarea>
+                        <textarea class="u_comment_textarea" name="" v-model="textComment" maxlength="1000"
+                            id=""></textarea>
                         <p class="u_comment_text">Оценка</p>
                         <p class="u_comment_rate">
                             <span class="u_comment_rate_text">Плохо</span>
-                            <span v-for="n in 5"><img class="u_comment_rating" src="img/unrated.png" alt=""></span>
+                            <span class="u_comment_rating1" onmouseout="addRate()">
+                                <span @click="addRateClick1()" onmouseover="addRateHover1()"> <img
+                                        class="u_comment_rating" src="img/unrated.png" alt=""></span>
+                                <span @click="addRateClick2()" onmouseover="addRateHover2()"> <img
+                                        class="u_comment_rating" src="img/unrated.png" alt=""></span>
+                                <span @click="addRateClick3()" onmouseover="addRateHover3()"> <img
+                                        class="u_comment_rating" src="img/unrated.png" alt=""></span>
+                                <span @click="addRateClick4()" onmouseover="addRateHover4()"> <img
+                                        class="u_comment_rating" src="img/unrated.png" alt=""></span>
+                                <span @click="addRateClick5()" onmouseover="addRateHover5()"> <img
+                                        class="u_comment_rating" src="img/unrated.png" alt=""></span>
+                            </span>
                             <span class="u_comment_rate_text">Хорошо</span><br>
+                            <span class="u_comment_rate_text1">Ваша оценка: <img v-for="n in commentRate"
+                                    src="img/rated.png" alt=""></span><br>
                             <button class="btn_comment">Отправить</button>
                         </p>
                     </form>
                 </div>
                 <div class="user_comment"><a href="" id="coment"></a>
-                    <p class="write_comment">Отзывы о товаре ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK</p>
-                    <p class="user_info">
-                        <span class="user_name">UserName - 29.01.2009</span>
-                        <span v-for="n in 5"><img class="user_name_rate" src="img/rated.png" alt=""></span>
-                    </p>
-                    <p class="user_name_comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                        sit
-                        amet nisl fermentum,
-                        fringilla mi vel, congue quam. Sed aliquet magna
-                        sed vehicula venenatis. Cras scelerisque mauris vitae convallis pellentesque.</p>
+                    <p class="write_comment">Отзывы о товаре {{itemGood[indexT].name}} от
+                        {{itemGood[indexT].proizvoditel}}</p>
+                    <div v-for="item in itemGood[indexT].comment">
+                        <p class="user_info">
+                            <span class="user_name">{{item.userName}} - {{item.dateOfWrite}}</span>
+                            <span v-for="n in 5"><img class="user_name_rate" :src="ratingCom(n, item)" alt=""></span>
+                        </p>
+                        <p class="user_name_comment">{{item.textOfComment}}</p>
+                    </div>
                 </div>
             </div>
         </div>

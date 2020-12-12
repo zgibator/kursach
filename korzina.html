@@ -115,7 +115,7 @@
                             <div v-for="n in 5" class="itemCardRate">
                                 <img :src="rating(n, good)" alt="">
                             </div>
-                            <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment}}</a></span>
+                            <span><a class="itemCardComment" href="tovar.html#coment">Отзывы:{{good.comment.length}}</a></span>
                             <div class="itemCardPrice">
                                 <div v-if="good.discount" class="itemCardDiscountPrice">
                                     {{good.price}}грн.
