@@ -76,20 +76,20 @@
                     <section class="new-items-table" id="card">
                         <div v-for="good in itemGood" v-show="newItem(good)" class="itemCard">
                             <div class="itemCardImg">
-                                <img :src="good.image1" alt="">
+                                <img :src="good.image[0]" alt="">
                             </div>
                             <div v-if="good.discount" class="itemCardDiscount">
                                 -{{good.discount}}%
                             </div>
                             <div class="itemCardName">
-                                {{good.name}}
+                                {{good.name}} от {{good.proizvoditel}}
                             </div>
                             <div class="item_card_info">
                                 <div class="itemCardCode">
                                     Код товара:{{good.codeOfGood}}
                                 </div>
                                 <div v-for="n in 5" class="itemCardRate">
-                                    <img :src="rating(n, good.comment.rating)" alt="">
+                                    <img :src="rating(n, good.comment)" alt="">
                                 </div>
                                 <span><a class="itemCardComment"
                                         href="tovar.html#coment">Отзывы:{{good.comment.length}}</a></span>
@@ -98,7 +98,7 @@
                                         {{good.price}}грн.
                                     </div>
                                     <br>
-                                    <div class="itemCardPrice2">
+                                    <div class="itemCardPrice2" :class="{redText:good.discount>0}">
                                         {{discountPrice2(good)}}грн.
                                     </div>
                                 </div>

@@ -39,21 +39,21 @@
             <div class="item_info">
                 <div class="item_img">
                     <div id="prev_img" class="item_img1">
-                        <div class="item_img_1" v-for="(image, index) in itemGood[indexT].image2"
-                            @click="a=itemGood[indexT].image2[index]">
-                            <a class="item_img2_link" href="#obj"></a><img class="item_info_img_prev" :src="image"
+                        <div class="item_img_1" v-for="(images, index) in itemGood[indexT].image"
+                            @click="a=itemGood[indexT].image[index]">
+                            <a class="item_img2_link" href="#obj"></a><img class="item_info_img_prev" :src="images"
                                 alt="">
                         </div>
                     </div>
                     <div class="item_img2_container">
                         <a class="item_img2_link" href="#show_img"></a>
-                        <img class="item_img2" :src="a.length==0 ? a=itemGood[indexT].image2[0] : a" alt="">
+                        <img class="item_img2" :src="a.length==0 ? a=itemGood[indexT].image[0] : a" alt="">
                     </div>
-                    <div v-if="itemGood[indexT].image2.length>4" @click="animScrollImgUp('prev_img')"
+                    <div v-if="itemGood[indexT].image.length>4" @click="animScrollImgUp('prev_img')"
                         class="item_img_arrow_up">
                         <img src="img/icons/arrow_up.png" alt="">
                     </div>
-                    <div v-if="itemGood[indexT].image2.length>4" @click="animScrollImgDown('prev_img')"
+                    <div v-if="itemGood[indexT].image.length>4" @click="animScrollImgDown('prev_img')"
                         class="item_img_arrow_down">
                         <img src="img/icons/arrow_up.png" alt="">
                     </div>
@@ -77,7 +77,8 @@
                     </div>
                     <p class="item_buy_text_total">Итого:</p>
                     <span class="item_buy_price_total">{{totalPrice=price*counterOfGood}}грн.</span>
-                    <button @click="addToCart(itemGood[indexT], counterOfGood)" class="item_buy_btn"> В корзину</button>
+                    <button @click="addToCart(itemGood[indexT], counterOfGood)" class="item_buy_btn"> В
+                        корзину</button>
                     <div class="rating">
                         <span v-for="n in 5">
                             <img class="user_name_rate" :src="rating(n, itemGood[indexT].comment)" alt="">
@@ -107,17 +108,17 @@
                 </div>
                 <div class="button_rel">
                     <section class="new-items-table" id="card2">
-                        <div v-for="good in itemGood"
+                        <div v-for="good in reversedItemGood"
                             v-show="itemGood[indexT].proizvoditel==good.proizvoditel&&itemGood[indexT].name==good.name&&itemGood[indexT].codeOfGood!=good.codeOfGood"
                             class="itemCard">
                             <div class="itemCardImg">
-                                <img :src="good.image1" alt="">
+                                <img :src="good.image[0]" alt="">
                             </div>
                             <div v-if="good.discount" class="itemCardDiscount">
                                 -{{good.discount}}%
                             </div>
                             <div class="itemCardName">
-                                {{good.name}}
+                                {{good.name}} от {{good.proizvoditel}}
                             </div>
                             <div class="item_card_info">
                                 <div class="itemCardCode">
@@ -133,7 +134,7 @@
                                         {{good.price}}грн.
                                     </div>
                                     <br>
-                                    <div class="itemCardPrice2">
+                                    <div class="itemCardPrice2" :class="{redText:good.discount>0}">
                                         {{discountPrice2(good)}}грн.
                                     </div>
                                 </div>

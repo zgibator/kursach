@@ -32,51 +32,109 @@ var app_1 = new Vue({
         textComment: '',
         counterOfGood: 1,
         price: 0,
+        totalValuePrice: 0,
+        totalValuePrice2: 0,
         commentRate: 0,
         totalPrice: 0,
         indexT: 3,
+        uploadedGood: 0,
+        counterOfSorter: 1,
         a: '',
         p: 3,
         discountPrice: 0,
+        itemOfSort: [],
+        itemFilters: [],
         cart: [
-            { id: 1, codeOfGood: 1, countOfGood: 2 }
+            { id: 1, codeOfGood: 0, countOfGood: 2 },
+            { id: 2, codeOfGood: 3, countOfGood: 4 },
+            { id: 3, codeOfGood: 2, countOfGood: 1 }
         ],
+        massProizv: [],
         goodItem: [],
         itemGood: [
             {
-                name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", description: 'Гитара J8 ST HMG 101 BK электро ,сочетает в себе все,что нужно для электрогитары. Стандартная гитара типа Stratocaster. Отлично подойдет для скоростной техники игры.', specific: '-Корпус: ольха', proizvoditel: 'j8', codeOfGood: 1,
-                comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 3772, discount: 39, image2: ['img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar2.jpg', 'img/guitar3.jpg', 'img/guitar4.jpg'], image1: 'img/guitar2.jpg', image3: 'img/guitar3.jpg', image4: 'img/guitar4.jpg', date: "12.29.2019"
+                name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", description: 'Гитара J8 ST HMG 101 BK электро ,сочетает в себе все,что нужно для электрогитары. Стандартная гитара типа Stratocaster. Отлично подойдет для скоростной техники игры.', specific: '-Корпус: ольха', proizvoditel: 'j8', codeOfGood: 0,
+                comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 3772, discount: 39, image: ['img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar2.jpg', 'img/guitar3.jpg', 'img/guitar4.jpg'], image1: 'img/guitar2.jpg', image3: 'img/guitar3.jpg', image4: 'img/guitar4.jpg', date: "12.29.2019"
             },
             {
-                name: "Барабан J8 ST HMG 101 BK", proizvoditel: 'j8', codeOfGood: 2, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }],
-                price: 2772, discount: 10, image1: 'img/guitar2.jpg', date: '11.23.2021'
+                name: "Барабан J8 ST HMG 101 BK", proizvoditel: 'Yamaha', codeOfGood: 1, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }],
+                price: 2772, discount: 10, image: ['img/good1.png'], date: '11.23.2021'
             },
             {
-                name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'j8', codeOfGood: 3, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }],
-                price: 2772, discount: 10, image1: 'img/guitar3.jpg', date: '11.23.2021'
+                name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'Fender', codeOfGood: 2, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }],
+                price: 2772, discount: 0, image: ['img/good1.png'], date: '11.23.2021'
             },
             {
-                name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", description: 'Гитара J8 ST HMG 101 BK электро ,сочетает в себе все,что нужно для электрогитары. Стандартная гитара типа Stratocaster. Отлично подойдет для скоростной техники игры.', specific: '-Корпус: ольха', proizvoditel: 'j8', codeOfGood: 7, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }, { userName: 'nagibator228', rating: 1, dateOfWrite: '29.02.2019', textOfComment: 'Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!' }, { userName: 'Беляк Владислав', rating: 2, dateOfWrite: '29.02.2019', textOfComment: 'Я вообще не гитарист)))' }],
-                price: 2772, discount: 10, image2: ['img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar2.jpg', 'img/guitar3.jpg', 'img/guitar4.jpg'], image1: 'img/guitar4.jpg', date: '11.23.2021'
+                name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", description: 'Гитара J8 ST HMG 101 BK электро ,сочетает в себе все,что нужно для электрогитары. Стандартная гитара типа Stratocaster. Отлично подойдет для скоростной техники игры.', specific: '-Корпус: ольха', proizvoditel: 'j8', codeOfGood: 3, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }, { userName: 'nagibator228', rating: 1, dateOfWrite: '29.02.2019', textOfComment: 'Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!Мне не понравилась!' }, { userName: 'Беляк Владислав', rating: 2, dateOfWrite: '29.02.2019', textOfComment: 'Я вообще не гитарист)))' }],
+                price: 2772, discount: 15, image: ['img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar.jpg', 'img/guitar2.jpg', 'img/guitar3.jpg', 'img/guitar4.jpg'], date: '11.23.2021'
             },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'j8', codeOfGood: 3, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 2772, discount: 10, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'j8', codeOfGood: 3, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 2772, discount: 10, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'j8', codeOfGood: 3, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 2772, discount: 10, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'j8', codeOfGood: 3, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 3772, discount: 10, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 3772, discount: 10, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 3772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 3772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 2772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 2772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 2772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 2772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 3772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 3772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 3772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
-            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", codeOfGood: 3, comment: [], price: 3772, discount: 0, image1: 'img/good1.png', date: '11.23.2021' },
+            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'Yamaha', codeOfGood: 4, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 2772, discount: 10, image: ['img/good1.png'], date: '11.23.2021' },
+            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'Fender', codeOfGood: 5, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 2772, discount: 10, image: ['img/good1.png'], date: '11.23.2021' },
+            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'Yamaha', codeOfGood: 6, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 2772, discount: 10, image: ['img/good1.png'], date: '11.23.2021' },
+            { name: "ЭЛЕКТРОГИТАРА J8 ST HMG 101 BK", proizvoditel: 'j8', codeOfGood: 7, comment: [{ userName: 'ivanenko', rating: 4, dateOfWrite: '29.02.2019', textOfComment: 'Хорошая гитара!' }], price: 3772, discount: 10, image: ['img/good1.png'], date: '11.23.2021' },
         ],
     },
+    computed: {
+        totalPriceCart: function () {
+            this.totalValuePrice = 0;
+            for (let i = 0; i < this.cart.length; i++) {
+                this.totalValuePrice += this.discountPrice2(this.itemGood[this.cart[i].codeOfGood]) * this.cart[i].countOfGood;
+            }
+            return this.totalValuePrice
+        },
+        reversedItemGood: function () {
+            return this.itemGood.slice().reverse();
+        },
+        filtersProizv: function () {
+            for (let i = 0; i < this.itemGood.length; i++) {
+                if (!this.massProizv.includes(this.itemGood[i].proizvoditel)) {
+                    this.massProizv.push(this.itemGood[i].proizvoditel);
+                }
+            }
+            return this.massProizv;
+        }
+    },
     methods: {
+        sorting: function (a) {
+            if (a == 1) {
+                return this.reversedItemGood;
+            }
+            if (a == 2) {
+                return this.reversedItemGood.sort(function (a, b) {
+                    return Math.round(a.price - (a.price / 100 * a.discount)) - Math.round(b.price - (b.price / 100 * b.discount));
+                })
+            }
+            if (a == 3) {
+                return this.reversedItemGood.sort(function (a, b) {
+                    return Math.round(b.price - (b.price / 100 * b.discount)) - Math.round(a.price - (a.price / 100 * a.discount));
+                })
+            }
+            if (a == 4) {
+                return this.reversedItemGood.sort(function (a, b) {
+                    let countStars = 0;
+                    for (let i = 0; i < a.comment.length; i++) {
+                        countStars += a.comment[i].rating;
+                    }
+                    let countStars2 = 0;
+                    for (let j = 0; j < b.comment.length; j++) {
+                        countStars2 += b.comment[j].rating;
+                    }
+                    return countStars - countStars2;
+                }
+                )
+            }
+        },
+        changedFilters: function (a) {
+            let good = true;
+            for (let i = 0; i < this.itemFilters.length; i++) {
+                if (this.itemFilters[i]) {
+                    if (a.proizvoditel == this.massProizv[i]) {
+                        return good = true;
+                    } else { good = false; }
+                }
+            }
+            return good;
+        },
         show_popup(a) {
             let el = document.getElementById(a);
             el.className = 'popup_add_success popup_add_success_open';
@@ -126,7 +184,7 @@ var app_1 = new Vue({
             return s;
         },
         discountPrice2: function (good) {
-            return this.discountPrice = Math.round(good.price - (good.price * good.discount / 100));
+            return this.discountPrice = Math.round(good.price - (good.price / 100 * good.discount));
         },
         newItem: function (g) {
             let now = new Date(),
@@ -221,14 +279,10 @@ var app_1 = new Vue({
             }, 15);
         },
         countPlus() {
-            console.log('lox');
             return this.counterOfGood++;
         }
     },
     watch: {
-
-
-
         search: function (newSearch) {
             if (newSearch.length > 1) {
                 this.isActive = false;
@@ -245,7 +299,6 @@ var app_1 = new Vue({
                 this.isActive = true;
             }
         }
-
     }
 });
 
