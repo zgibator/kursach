@@ -42,6 +42,8 @@ var app_1 = new Vue({
         a: '',
         p: 3,
         discountPrice: 0,
+        scetchik: 0,
+        revItemGood: [],
         itemOfSort: [],
         itemFilters: [],
         cart: [
@@ -75,15 +77,20 @@ var app_1 = new Vue({
         ],
     },
     computed: {
+        reversedItemGood: {
+            get: function () {
+                return this.revItemGood = this.itemGood.slice().reverse();
+            },
+            set: function (Value) {
+                this.revItemGood = Value;
+            }
+        },
         totalPriceCart: function () {
             this.totalValuePrice = 0;
             for (let i = 0; i < this.cart.length; i++) {
                 this.totalValuePrice += this.discountPrice2(this.itemGood[this.cart[i].codeOfGood]) * this.cart[i].countOfGood;
             }
             return this.totalValuePrice
-        },
-        reversedItemGood: function () {
-            return this.itemGood.slice().reverse();
         },
         filtersProizv: function () {
             for (let i = 0; i < this.itemGood.length; i++) {
@@ -95,9 +102,10 @@ var app_1 = new Vue({
         }
     },
     methods: {
+
         sorting: function (a) {
             if (a == 1) {
-                return this.reversedItemGood;
+                return this.reversedItemGood = this.itemGood.slice().reverse();
             }
             if (a == 2) {
                 return this.reversedItemGood.sort(function (a, b) {
