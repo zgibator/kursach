@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="category">
-            <div class="new-items-title title-section">
+            <div class="new-items-title title-section" id="kat">
                 <p class="category-title-img title-section-img"><img src="img/Слой_15.png" alt=""></p>
                 <div class="new-items-title-title title-section-title-title">
                     <p class="new-items-title-tovar title-section-tovar">Категории
@@ -286,7 +286,7 @@
                                         <img class="itemCardRate3" :src="rating(n, good.comment)" alt="">
                                     </div>
                                     <span><a class="itemCardComment"
-                                            href="tovar.html#coment">Отзывы:{{good.comment.length}}</a></span>
+                                            href="tovar.html#coment">Отзывы:{{good.comment.length}}10</a></span>
                                     <div class="itemCardPrice">
                                         <div v-if="good.discount" class="itemCardDiscountPrice">
                                             {{good.price}}грн.

@@ -140,6 +140,7 @@ body{
     max-height: 100%;
 }
 .sliderColText{
+    margin: auto;
     width: 40%;
 }
 h1{
@@ -256,7 +257,7 @@ h1{
     padding-top: 10px;
     text-align: center;
     backface-visibility: hidden;
-    box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.35);
+    box-shadow: 25px 10px 10px rgba(0, 0, 0, 0.35);
 }
 .items-of-category:hover{
     transform: rotateY(180deg);
@@ -374,11 +375,11 @@ text-align: center;
     margin: 0 1px;
 }
 .itemCardComment{
-color: #264d90;
-font-size: 11px;
-font-weight: 500;
-line-height: 24px;
-text-align: left;
+    color: #264d90;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
 }
 .itemCardComment:hover, .itemCardComment2:hover{
     text-decoration: underline;
@@ -1676,6 +1677,7 @@ text-align: left;
     }
     .containerSlider{
         height: auto;
+        box-shadow: 0 10px 11px rgba(0, 0, 0, 0.35);
     }
     .title-section-tovar{
         font-size: 30px;
@@ -1787,21 +1789,29 @@ text-align: left;
         height: 13px;
     }
     .sliderText2{
-        font-size: 14px;
+        font-size: 16px;
+    }
+    .sliderColImage{
+        max-width: 50%;
+        margin: 0;
     }
     .sliderColImage img{
-        max-width: 70%;
+        max-width: 100%;
     }
     .sliderColText{
-        width: 80%;
+        max-width: 100%;
+        margin: auto;
     }
     .containerRowContent{
-        width: 670px;
-        padding: 10px 10%;
-        justify-content: space-around;
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+        padding: 10px 0;
     }
     .slider{
-        width: 670px;
+        width: 600px;
+        height: auto;
     }
     h1{
         font-size: 20px;
@@ -1827,6 +1837,9 @@ text-align: left;
 @media(max-width:725px){
     .navItem{
         display: none;
+    }
+    .slider{
+        max-width: 100%;
     }
     .searchButton{
         margin-right: 30px;
@@ -1999,7 +2012,9 @@ text-align: left;
     .category-items{
         display: flex;
         max-width: 100%;
+        margin-top: 20px;
         justify-content: space-around;
+
     }
     .items-of-category{
         margin-left: 15px;
@@ -2007,7 +2022,216 @@ text-align: left;
     .item_in_category{
         margin-top: 20px;
     }
+    .title-section{
+        margin: 30px auto 0 auto;
+    }
 }
 @media(max-width:620px){
+    .containerHeader{
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    .navigation{
+        right: 25px;
+    }
+    .navigation2{
+        right: 5px;
+    }
+    .slider{
+        width: 500px;
+        height: auto;
+    }
+    .title-section-tovar{
+        font-size: 25px;
+        line-height: 19px;
+        margin-top: 10px;
+    }
+    .category-items-text{
+        color: #000000;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 20px;
+        text-align: center;
+        }
+}
+@media(max-width:510px){
     
+    .items-of-category{
+        width: 160px;
+        height: 160px;
+        box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.35);
+    }
+    .items-of-category-text{
+        box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.35);
+    }
+    .items-of-category{
+        margin-left: 20px;
+    }
+    .title-section-tovar{
+        font-size: 20px;
+        line-height: 14px;
+        margin-top: 10px;
+    }
+    .category-items-text{
+        color: #000000;
+        font-family: "Open Sans";
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 16px;
+        text-align: center;
+        }
+        .slider{
+            width: 400px;
+            height: auto;
+        }
+        h1{
+            font-size: 18px;
+            line-height: 30px;
+        }
+        .sliderText2{
+            font-size: 12px;
+        }
+}
+@media(max-width:405px){
+    
+    .btn_more{
+        padding: 3px;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .items-of-category{
+        width: 120px;
+        height: 120px;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.35);
+    }
+    .items-of-category-text{
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.35);
+    }
+    .items-of-category{
+        margin-left: 0;
+    }
+    .slider{
+        width: 300px;
+        height: auto;
+    }
+    .sliderText2{
+        font-size: 16px;
+    }
+    .sliderColImage{
+        max-width: 100%;
+        margin: 0;
+    }
+    .sliderColImage img{
+        max-width: inherit;
+    }
+    .sliderColText{
+        width: 50%;
+        position: absolute;
+        right: 0;
+        top: 2px;
+        margin: auto;
+    }
+    .containerRowContent{
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+        padding: 10px 0;
+    }
+    .title-section{
+        margin: 20px auto 0 auto;
+    }
+    .points{
+        font-size: 10px;
+    }
+    .category-items-1{
+        width: 121px;
+    }
+    .category-items-2{
+        width: 121px;
+    }
+    .footer-center-title1{
+        font-size: 18px;
+        padding: 7px 10px;
+    }
+    .category-items-text{
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .navItem2{
+        font-size: 20px;
+    }
+    .cart_counter2{
+        position: absolute;
+        display:inline;
+        bottom: 2px;
+        right: 40px;
+        text-align: center;
+        background: url(https://zgibator.github.io/kursach/img/elips.png) no-repeat;
+        background-position: center center;
+        color: white;
+        font-size: 15px;
+        width: 17px;
+        height: 17px;
+        line-height: 17px;
+        border-radius: 50%;
+    }
+    .itemCard{
+        min-width: 140px;
+        max-width: 140px;
+        height: 180px;
+    }
+    .itemCardImg{
+        max-width: 140px;
+        height: 80px;
+        border: 1px solid red;
+    }
+    .itemCardName{
+        font-size: 9px;
+        line-height: 10px;
+        margin: 0 2px;
+        top: 82px;
+    }
+    .itemCardCode{
+        font-size: 10px;
+        line-height: 16px;
+    }
+    .itemCardRate{
+        width: 11px;
+        height: 11px;
+    }
+    .itemCardRate img{
+        width: 11px;
+        height: 11px;
+    }
+    .itemCardImg img{
+        height: auto;
+        max-height: 80px;
+        width: 100%;
+        object-fit: contain;
+        margin: auto;
+        border: 1px solid red;
+    }
+    .itemCardBtn{
+        width: 58px;
+        height: 29px;
+        font-size: 12px;
+        line-height: 20px;
+        bottom: 3px;
+        right: 3px;
+    }
+    .itemCardComment{
+        display: block;
+        font-size: 10px;
+        line-height: 10px;
+    }
+}
+@media(max-width:305px){
+    .slider{
+        width: 280px;
+        height: auto;
+    }
 }
