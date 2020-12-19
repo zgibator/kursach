@@ -313,6 +313,9 @@ text-align: center;
 .itemCard:hover{
     border: 1px solid #ff9b04;
 }
+.main_menu_burger{
+    display: none;
+}
 .itemCardImg{
     display: flex;
     width: 100%;
@@ -1611,7 +1614,7 @@ text-align: center;
 
 
 /*media-запросы*/
-@media(max-width:1050px){
+@media only screen and (max-width:1050px){
     
     .category{
         max-width: 100%;
@@ -1685,7 +1688,7 @@ text-align: center;
         margin-top: 20px;
     }
 }
-@media(max-width:925px){
+@media only screen and (max-width:925px){
     .new-items{
         max-width: 100%;
     }
@@ -1733,7 +1736,7 @@ text-align: center;
         margin-top: 20px;
     }
 }
-@media(max-width:815px){
+@media only screen and (max-width:815px){
     
     .navItem{
         margin: 0 5px;
@@ -1834,7 +1837,7 @@ text-align: center;
     }
     
 }
-@media(max-width:725px){
+@media only screen and (max-width:725px){
     .navItem{
         display: none;
     }
@@ -2026,7 +2029,7 @@ text-align: center;
         margin: 30px auto 0 auto;
     }
 }
-@media(max-width:620px){
+@media only screen and (max-width:620px){
     .containerHeader{
         max-width: 100%;
         padding: 0 5px;
@@ -2055,7 +2058,7 @@ text-align: center;
         text-align: center;
         }
 }
-@media(max-width:510px){
+@media only screen and (max-width:510px){
     
     .items-of-category{
         width: 160px;
@@ -2093,7 +2096,7 @@ text-align: center;
             font-size: 12px;
         }
 }
-@media(max-width:405px){
+@media only screen and (max-width:405px){
     
     .btn_more{
         padding: 3px;
@@ -2187,7 +2190,6 @@ text-align: center;
     .itemCardImg{
         max-width: 140px;
         height: 80px;
-        border: 1px solid red;
     }
     .itemCardName{
         font-size: 9px;
@@ -2213,7 +2215,6 @@ text-align: center;
         width: 100%;
         object-fit: contain;
         margin: auto;
-        border: 1px solid red;
     }
     .itemCardBtn{
         width: 58px;
@@ -2229,7 +2230,7 @@ text-align: center;
         line-height: 10px;
     }
 }
-@media(max-width:305px){
+@media only screen and (max-width:305px){
     .slider{
         width: 280px;
         height: auto;
