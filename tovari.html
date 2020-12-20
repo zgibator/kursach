@@ -12,113 +12,115 @@
 
 <body>
     <div id="app_1">
-        <div id="1" class="containerHeader">
-            <header>
-                <span class="logo">Logo</span>
-                <div class="navigation">
-                    <a href="index.html#1" class="navItem">Главная</a>
-                    <a href="index.html#kat" class="navItem">Категории</a>
-                    <a href="korzina.html#1" class="navItem">Корзина
-                        <div class="cart_counter">{{cart.length}}</div>
-                    </a>
-                    <a href="#registr" class="navItem">Личный кабинет</a>
-                    <input type="text" class="searchInput" placeholder="Поиск товара"><button class="searchButton"><img
-                            src="img/icons/search.svg" alt=""></button>
-                </div>
-            </header>
-        </div>
-        <div class="container_section">
-            <p class="container_section_text">Электрогитары</p>
-        </div>
-        <div class="container2">
-            <div class="container_content">
-                <div class="filter_content">
-                    <div class="filter_content_parametr textOfFilter">
-                        <p><span>Параметры:</span>
-                        <p v-for="(item, index) in massProizv" v-if="itemFilters[index]==1"><span
-                                class=" changedFilter"><span class="btnCloseFilter"><img src="img/icons/cross.png"
-                                        alt=""></span>{{item}}</span>
-                        </p>
-                        </p>
+        <div>
+            <div id="1" class="containerHeader">
+                <header>
+                    <span class="logo">Logo</span>
+                    <div class="navigation">
+                        <a href="index.html#1" class="navItem">Главная</a>
+                        <a href="index.html#kat" class="navItem">Категории</a>
+                        <a href="korzina.html#1" class="navItem">Корзина
+                            <div class="cart_counter">{{cart.length}}</div>
+                        </a>
+                        <a href="#registr" class="navItem">Личный кабинет</a>
+                        <input type="text" class="searchInput" placeholder="Поиск товара"><button
+                            class="searchButton"><img src="img/icons/search.svg" alt=""></button>
                     </div>
-                    <div class="filter_content_value">
-                        <div class="filter_content_value_prod">
-                            <p class="textOfFilter">Производитель:</p>
-                            <div class="filter_content_value_item">
-                                <label class="check2" v-for="(item, index) in filtersProizv">
-                                    <input class="check" v-model="itemFilters[index]" type="checkbox">
-                                    <p>{{massProizv[index]}}</p>
-                                </label>
+                </header>
+            </div>
+            <div class="container_section">
+                <p class="container_section_text">Электрогитары</p>
+            </div>
+            <div class="container2">
+                <div class="container_content">
+                    <div class="filter_content">
+                        <div class="filter_content_parametr textOfFilter">
+                            <p><span>Параметры:</span>
+                            <p v-for="(item, index) in massProizv" v-if="itemFilters[index]==1"><span
+                                    class=" changedFilter"><span class="btnCloseFilter"><img src="img/icons/cross.png"
+                                            alt=""></span>{{item}}</span>
+                            </p>
+                            </p>
+                        </div>
+                        <div class="filter_content_value">
+                            <div class="filter_content_value_prod">
+                                <p class="textOfFilter">Производитель:</p>
+                                <div class="filter_content_value_item">
+                                    <label class="check2" v-for="(item, index) in filtersProizv">
+                                        <input class="check" v-model="itemFilters[index]" type="checkbox">
+                                        <p>{{massProizv[index]}}</p>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="container_sort_item">
-                    <div class="sort">
-                        <div class="sort_container">
-                            <p class="sort_text">Сортировка:</p>
-                            <select v-model="counterOfSorter" v-if="sorting(counterOfSorter)"
-                                class="sort_sort sort_text3">
-                                <option value="1">По умолчанию</option>
-                                <option value="2">От дешевых к дорогим</option>
-                                <option value="3">От дорогих к дешевым</option>
-                                <option value="4">Лучшие</option>
-                            </select>
-                            <span class="sort_text2">Товаров найдено: {{uploadedGood}}-{{itemGood.length}}</span>
-                        </div>
-                    </div>
-                    <div class="container_item">
-                        <section class="container_item_item">
-                            <div v-for="(good, index) in reversedItemGood" v-if="changedFilters(good)"
-                                class="itemCard2">
-                                <div class="itemCardImg">
-                                    <img :src="good.image[0]" alt="">
-                                </div>
-                                <div v-if="good.discount" class="itemCardDiscount">
-                                    -{{good.discount}}%
-                                </div>
-                                <div class="itemCardName">
-                                    {{good.name}} от {{good.proizvoditel}}
-                                </div>
-                                <div class="item_card_info">
-                                    <div class="itemCardCode">
-                                        Код товара:{{good.codeOfGood}}
-                                    </div>
-                                    <div v-for="n in 5" class="itemCardRate">
-                                        <img :src="rating(n, good.comment)" alt="">
-                                    </div>
-                                    <span><a class="itemCardComment"
-                                            href="tovar.html#coment">Отзывы:{{good.comment.length}}</a></span>
-                                    <div class="itemCardPrice">
-                                        <div v-if="good.discount" class="itemCardDiscountPrice">
-                                            {{good.price}}грн.
-                                        </div>
-                                        <br>
-                                        <div class="itemCardPrice2" :class="{redText:good.discount>0}">
-                                            {{discountPrice2(good)}}грн.
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="itemCardBtn"><a class="item_img2_link"
-                                        href="tovar.html#1"></a>Купить</button>
+                    <div class="container_sort_item">
+                        <div class="sort">
+                            <div class="sort_container">
+                                <p class="sort_text">Сортировка:</p>
+                                <select v-model="counterOfSorter" v-if="sorting(counterOfSorter)"
+                                    class="sort_sort sort_text3">
+                                    <option value="1">По умолчанию</option>
+                                    <option value="2">От дешевых к дорогим</option>
+                                    <option value="3">От дорогих к дешевым</option>
+                                    <option value="4">Лучшие</option>
+                                </select>
+                                <span class="sort_text2">Товаров найдено: {{uploadedGood}}-{{itemGood.length}}</span>
                             </div>
-                        </section>
-                        <div class="pagination">
-                            <button class="pagination_prev">
-                                <img class="pagination_img1" src="img/next.png" alt="">
-                            </button>
-                            <button class="pagination_num">
-                                <p>1</p>
-                            </button>
-                            <button class="pagination_next">
-                                <img class="pagination_img2" src="img/next.png" alt="">
-                            </button>
+                        </div>
+                        <div class="container_item">
+                            <section class="container_item_item">
+                                <div v-for="(good, index) in reversedItemGood" v-if="changedFilters(good)"
+                                    class="itemCard2">
+                                    <div class="itemCardImg">
+                                        <img :src="good.image[0]" alt="">
+                                    </div>
+                                    <div v-if="good.discount" class="itemCardDiscount">
+                                        -{{good.discount}}%
+                                    </div>
+                                    <div class="itemCardName">
+                                        {{good.name}} от {{good.proizvoditel}}
+                                    </div>
+                                    <div class="item_card_info">
+                                        <div class="itemCardCode">
+                                            Код товара:{{good.codeOfGood}}
+                                        </div>
+                                        <div v-for="n in 5" class="itemCardRate">
+                                            <img :src="rating(n, good.comment)" alt="">
+                                        </div>
+                                        <span><a class="itemCardComment"
+                                                href="tovar.html#coment">Отзывы:{{good.comment.length}}</a></span>
+                                        <div class="itemCardPrice">
+                                            <div v-if="good.discount" class="itemCardDiscountPrice">
+                                                {{good.price}}грн.
+                                            </div>
+                                            <br>
+                                            <div class="itemCardPrice2" :class="{redText:good.discount>0}">
+                                                {{discountPrice2(good)}}грн.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="itemCardBtn"><a class="item_img2_link"
+                                            href="tovar.html#1"></a>Купить</button>
+                                </div>
+                            </section>
+                            <div class="pagination">
+                                <button class="pagination_prev">
+                                    <img class="pagination_img1" src="img/next.png" alt="">
+                                </button>
+                                <button class="pagination_num">
+                                    <p>1</p>
+                                </button>
+                                <button class="pagination_next">
+                                    <img class="pagination_img2" src="img/next.png" alt="">
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer">
+        <div class="footer" style="position: absolute;bottom: 0;">
             <div class="container-footer">
                 <div class="footer-left foot">
                     <p class="footer-left-logo">Logo</p>

@@ -46,6 +46,7 @@ var app_1 = new Vue({
         countOfClick: 0,
         countOfClick2: 0,
         countOfClick3: 0,
+        countOfClick4: 0,
         revItemGood: [],
         itemOfSort: [],
         itemFilters: [],
